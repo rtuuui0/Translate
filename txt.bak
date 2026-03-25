@@ -8,7 +8,7 @@ global.akamai_cloud.monitortype.short=阿卡迈
 
 akamai_cloud.summary.title=概括
 action.info=行动信息
-report.mail.akamai_cloud.desc=举报邮件说明
+report.mail.akamai_cloud.desc=报告邮件说明
 
 
 akamai_cloud.newresourcescount=已发现资源
