@@ -1,0 +1,1598 @@
+
+alibabacloud.ha.desc=使用阿里云独有的指标集监控您的阿里云服务，帮助您深入了解您的资源。
+digitalocean.ha.desc=简化DigitalOcean云监控。自动跟踪DigitalOcean服务，诊断减速，并保持您的系统平稳运行。
+akamai_cloud.ha.desc=监控您的Akamai云基础设施，评估性能约束，并确保云中的快速问题解决。
+
+
+alibabacloud.authtype.header.1=生成AccessKey ID和AccessKey以进行监控的步骤
+alibabacloud.authtype.header.desc.1=<div>1. 登录到<a href="https://ram.console.aliyun.com">Resource Access Management</a> (RAM) console in Alibaba.</div><div>2. 在左侧菜单中，导航到<b>Users</b> > choose <b>创建用户</b> to create a separate user for Site24x7 in the Alibaba Cloud console.</div><div>3. 提供<b>登录名</b> and <b>显示名称</b>，并启用<i>使用永久AccessKey访问</i>。</div><div>4. 使用MFA验证进行身份验证后，点击<b>确定</b> in the <i>保存AccessKey对</i> pop-up.</div><div>5. 点击<b>下载CSV</b> and save the file.</div><div>6. 提供保存的<i>AccessKey ID</i> and <i>AccessKey Secret</i> while creating an Alibaba Cloud monitor.</div>
+alibabacloud.authtype.access_key=访问密钥ID
+alibabacloud.authtype.secret_key=访问密钥秘密
+alibabacloud.info.authtype.access_key=这是从您的阿里云RAM控制台生成的AccessKey ID。Site24x7使用它来验证API调用并检索资源元数据。
+alibabacloud.info.authtype.secret_key=这是与您的AccessKey ID配对的AccessKey Secret。Site24x7使用它来安全访问阿里云API。
+
+
+digitalocean.authtype.header.2=创建OAuth应用程序以进行监控的步骤
+digitalocean.authtype.header.desc.2=<div>1. 在DigitalOcean中，导航到<b>API</b> > <b>OAuth应用程序</b> > <b>注册应用程序</b>。</div><div>2. 保存并安全存储客户端ID和客户端密钥。</div><div>3. 在Site24x7中，导航到<b>管理员</b> > <b>配置配置文件</b> > <b>OAuth提供商</b> > <b>添加提供商</b>。</div><div>4. 使用授权代码流并设置端点：i.<a href="https://cloud.digitalocean.com/v1/oauth/authorize">授权</a>  ii.  <a href="https://cloud.digitalocean.com/v1/oauth/token">令牌</a></div><div>5. 输入客户端ID、密钥和重定向URI，然后授权生成访问令牌并验证配置。</div>
+digitalocean.authtype.header.3=生成访问令牌以进行监控的步骤
+digitalocean.authtype.header.desc.3=<div>1. 登录到<a href="http://cloud.digitalocean.com/login">DigitalOcean控制台</a> </div><div>2. 转到<b>API设置</b> > <b>左侧面板</b> > <b>API</b> > <b>令牌</b> > <b>生成新令牌</b></div><div>3. 创建<b>个人访问令牌</b> (PAT)</div><div>4. 确保满足所有先决条件：<br>(a) 提供<b>读取</b> permission (sufficient for monitoring). <br>(b) 具有资源查看器权限的DigitalOcean账户。<br>(c) API访问已启用。<br>(d)访问DigitalOcean控制面板或开发者API</div><div>5. 点击<b>生成令牌</b> <i>IMPORTANT: Copy and store the token securely. It cannot be viewed again. </i></div>
+digitalocean.authtype.provider_id=Site24x7 OAuth提供商ID
+digitalocean.oauth2.provider.name=提供商名称
+digitalocean.authtype.access_token=访问令牌
+digitalocean.info.authtype.provider_id=Site24x7 OAuth提供商ID
+digitalocean.info.authtype.access_token=访问令牌
+
+akamai_cloud.authtype.header.2=创建OAuth应用程序以进行监控的步骤
+akamai_cloud.authtype.header.desc.2=<div>1. 登录到<a>Akamai云控制台</a> and navigate to <a>资源访问管理(RAM)控制台</a></div><div>2. 在左侧菜单中，导航到用户 -> 创建用户，以在阿里巴巴云控制台中为Site24x7创建一个单独的用户</div><div>3. 通过启用永久AccessKey创建AccessKey</div><div>4. 下载AccessKey并保存用户</div><div>5. 在下面创建阿里巴巴监控器时使用该访问密钥ID和访问密钥秘密</div>
+akamai_cloud.authtype.header.3=生成访问令牌以进行监控的步骤
+akamai_cloud.authtype.header.desc.3=<div>1. 登录到<a href="https://cloud.linode.com">Akamai云管理器</a></div><div>2. 转到<b>配置文件图标</b> > <b>API令牌</b> > <b>创建个人访问令牌</b>。</div><div>3. 命名令牌（例如，site24x7-monitoring）。</div><div>4. 为用户启用API访问，并在访问范围下，为以下启用读取访问：<i>Linodes（计算实例）、NodeBalancers（负载均衡器）</i></div><div>5. 点击创建令牌并安全复制。</div><div><b>重要</b>：只读访问足以进行监控。安全存储您的PAT；一旦生成就无法检索。</div>
+akamai_cloud.authtype.provider_id=Site24x7 OAuth提供商ID
+akamai_cloud.oauth2.provider.name=提供商名称
+akamai_cloud.authtype.access_token=访问令牌
+akamai_cloud.info.authtype.provider_id=Site24x7 OAuth提供商ID
+akamai_cloud.info.authtype.access_token=访问令牌
+
+huaweicloud.authtype.header.1=生成AccessKey ID和AccessKey以进行监控的步骤
+huaweicloud.authtype.header.desc.1=<div>1. 登录到华为<a href="https://auth.huaweicloud.com/authui/login.html#/login">身份和访问管理(IAM)</a> console.</div><div>2. 在左侧菜单中，导航到<b>用户 ></b> Click <b>创建用户</b> to create a separate user for Site24x7.</div><div>3. 点击新创建的用户名。在访问密钥部分，点击<b>创建访问密钥</b> button.</div><div>4. 弹出窗口打开并显示建议；选中复选框以生成访问密钥。点击<b>下一步</b>。</div><div>5. 输入您的描述，点击<b>确定</b>。</div><div>6. 点击<b>下载</b> to save the Credentials CSV file containing the <b>访问密钥ID</b> and <b>秘密访问密钥</b> for use in the Huawei Cloud monitor.</div><div>7. 提供保存的<b>访问密钥ID</b> and <b>秘密访问密钥</b> while creating a Huawei Cloud monitor.</div>�
+huaweicloud.authtype.access_key=访问密钥ID
+huaweicloud.authtype.secret_key=秘密访问密钥
+huaweicloud.info.authtype.access_key=这是从您的华为云IAM控制台生成的AccessKey ID。Site24x7使用它来验证API调用并检索资源元数据。
+huaweicloud.info.authtype.secret_key=这是与您的AccessKey ID配对的Secret Access Key。Site24x7使用它来安全访问华为云API。
+
+
+dmfw.discover.success=资源发现任务已成功启动
+dmfw.discover.error=资源发现任务已在运行。请稍后重试
+dm.resources.info=查看此服务类型下列出的资源。点击任何资源监控器以查看其性能指标、元数据等。
+
+
+
+# ===================== HUAWEICLOUD_SFS (Scalable File Service) =====================
+global.huaweicloud_sfs.monitortype=华为云SFS
+global.huaweicloud_sfs.monitortype.short=SFS
+huaweicloud_sfs.monitor.add=添加华为云SFS监控器
+huaweicloud_sfs.monitor.edit=编辑华为云SFS监控器
+huaweicloud_sfs.monitor.type=华为云SFS
+report.mail.huaweicloud_sfs.desc=华为云可扩展文件服务监控器
+huaweicloud_sfs.wm_raw_table=性能指标
+huaweicloud_sfs.summary.title=SFS摘要
+huaweicloud_sfs.unit=单位
+
+# SFS Metric display names
+huaweicloud_sfs.read_bandwidth=读取带宽
+huaweicloud_sfs.write_bandwidth=写入带宽
+huaweicloud_sfs.read_tps=读取TPS
+huaweicloud_sfs.write_tps=写入TPS
+huaweicloud_sfs.capacity_standard=标准存储使用量
+huaweicloud_sfs.capacity_infrequentaccess=不频繁访问存储使用量
+huaweicloud_sfs.rw_bandwidth=读写带宽
+huaweicloud_sfs.read_ops=读取操作
+huaweicloud_sfs.write_ops=写入操作
+huaweicloud_sfs.rw_ops=读写操作
+huaweicloud_sfs.used_capicity=已用容量
+
+# SFS Tab labels
+huaweicloud_sfs.tab.throughput=吞吐量
+huaweicloud_sfs.tab.operations=操作
+huaweicloud_sfs.tab.tps=TPS
+huaweicloud_sfs.tab.capacity=容量
+
+# SFS Threshold group labels
+huaweicloud_sfs.group.throughput=吞吐量指标
+huaweicloud_sfs.group.tps=TPS指标
+huaweicloud_sfs.group.operations=操作指标
+huaweicloud_sfs.group.capacity=容量指标
+
+# SFS Report keys
+reports.average.huaweicloud_sfs.usage=平均
+avg.huaweicloud_sfs.usage=平均
+max.huaweicloud_sfs.usage=最大
+min.huaweicloud_sfs.usage=最小
+
+# ===================== HUAWEICLOUD_SFS_TURBO (SFS Turbo) =====================
+global.huaweicloud_sfs_turbo.monitortype=华为云SFS Turbo
+global.huaweicloud_sfs_turbo.monitortype.short=SFS Turbo
+huaweicloud_sfs_turbo.monitor.add=添加华为云SFS Turbo监控器
+huaweicloud_sfs_turbo.monitor.edit=编辑华为云SFS Turbo监控器
+huaweicloud_sfs_turbo.monitor.type=华为云SFS Turbo
+report.mail.huaweicloud_sfs_turbo.desc=华为云SFS Turbo文件系统监控器
+huaweicloud_sfs_turbo.wm_raw_table=性能指标
+huaweicloud_sfs_turbo.summary.title=SFS Turbo摘要
+huaweicloud_sfs_turbo.unit=单位
+
+# SFS Turbo Metric display names
+huaweicloud_sfs_turbo.data_read_io_bytes=数据读取IO字节
+huaweicloud_sfs_turbo.data_write_io_bytes=数据写入IO字节
+huaweicloud_sfs_turbo.total_io_bytes=总IO字节
+huaweicloud_sfs_turbo.metadata_io_bytes=元数据IO字节
+huaweicloud_sfs_turbo.iops=IOPS
+huaweicloud_sfs_turbo.client_connections=客户端连接
+huaweicloud_sfs_turbo.used_capacity=已用容量
+huaweicloud_sfs_turbo.used_capacity_percent=已用容量百分比
+huaweicloud_sfs_turbo.used_inode=已用Inode
+huaweicloud_sfs_turbo.used_inode_percent=已用Inode百分比
+
+# SFS Turbo Tab labels
+huaweicloud_sfs_turbo.tab.throughput=吞吐量
+huaweicloud_sfs_turbo.tab.iops=IOPS和连接
+huaweicloud_sfs_turbo.tab.capacity=容量和Inodes
+
+# SFS Turbo Threshold group labels
+huaweicloud_sfs_turbo.group.throughput=吞吐量指标
+huaweicloud_sfs_turbo.group.capacity=容量指标
+
+# SFS Turbo Report keys
+reports.average.huaweicloud_sfs_turbo.usage=平均
+avg.huaweicloud_sfs_turbo.usage=平均
+max.huaweicloud_sfs_turbo.usage=最大
+min.huaweicloud_sfs_turbo.usage=最小
+
+# ===================== HUAWEICLOUD_CBR (Cloud Backup and Recovery) =====================
+global.huaweicloud_cbr.monitortype=华为云CBR
+global.huaweicloud_cbr.monitortype.short=CBR
+huaweicloud_cbr.monitor.add=添加华为云CBR监控器
+huaweicloud_cbr.monitor.edit=编辑华为云CBR监控器
+huaweicloud_cbr.monitor.type=华为云CBR
+report.mail.huaweicloud_cbr.desc=华为云云备份和恢复监控器
+huaweicloud_cbr.wm_raw_table=性能指标
+huaweicloud_cbr.summary.title=CBR摘要
+huaweicloud_cbr.unit=单位
+
+# CBR Metric display names
+huaweicloud_cbr.vault_util=保险库利用率
+huaweicloud_cbr.used_vault_size=已用保险库大小
+
+# CBR Tab labels
+huaweicloud_cbr.tab.backup=备份
+
+# CBR Report keys
+reports.average.huaweicloud_cbr.usage=平均
+avg.huaweicloud_cbr.usage=平均
+max.huaweicloud_cbr.usage=最大
+min.huaweicloud_cbr.usage=最小
+
+## HuaweiCloud RDS MySQL ##
+global.huaweicloud_rds_mysql.monitortype=华为云RDS MySQL
+global.huaweicloud_rds_mysql.monitortype.short=RDS MySQL
+huaweicloud_rds_mysql.monitor.add=添加华为云RDS MySQL监控器
+huaweicloud_rds_mysql.monitor.edit=编辑华为云RDS MySQL监控器
+huaweicloud_rds_mysql.monitor.type=华为云RDS MySQL
+report.mail.huaweicloud_rds_mysql.desc=华为云RDS MySQL监控器
+huaweicloud_rds_mysql.wm_raw_table=性能指标
+huaweicloud_rds_mysql.summary.title=RDS MySQL摘要
+
+huaweicloud_rds_mysql.rds001_cpu_util=CPU利用率
+huaweicloud_rds_mysql.rds002_mem_util=内存利用率
+huaweicloud_rds_mysql.rds003_iops=IOPS
+huaweicloud_rds_mysql.rds004_bytes_in=网络输入吞吐量
+huaweicloud_rds_mysql.rds005_bytes_out=网络输出吞吐量
+huaweicloud_rds_mysql.rds006_conn_count=总连接数
+huaweicloud_rds_mysql.rds007_conn_active_count=活动连接数
+huaweicloud_rds_mysql.rds008_qps=每秒查询数
+huaweicloud_rds_mysql.rds009_tps=每秒事务数
+huaweicloud_rds_mysql.rds010_innodb_buf_usage=InnoDB缓冲池利用率
+huaweicloud_rds_mysql.rds011_innodb_buf_hit=InnoDB缓冲池命中率
+huaweicloud_rds_mysql.rds012_innodb_buf_dirty=InnoDB缓冲池脏页率
+huaweicloud_rds_mysql.rds013_innodb_reads=InnoDB读取吞吐量
+huaweicloud_rds_mysql.rds014_innodb_writes=InnoDB写入吞吐量
+huaweicloud_rds_mysql.rds015_innodb_read_count=InnoDB读取操作
+huaweicloud_rds_mysql.rds016_innodb_write_count=InnoDB写入操作
+huaweicloud_rds_mysql.rds028_comdml_del_count=删除语句
+huaweicloud_rds_mysql.rds029_comdml_ins_count=插入语句
+huaweicloud_rds_mysql.rds033_comdml_sel_count=选择语句
+huaweicloud_rds_mysql.rds034_comdml_upd_count=Update Statements
+huaweicloud_rds_mysql.rds039_disk_util=Disk Utilization
+huaweicloud_rds_mysql.rds047_disk_total_size=Disk Total Size
+huaweicloud_rds_mysql.rds048_disk_used_size=Disk Used Size
+huaweicloud_rds_mysql.rds049_disk_read_throughput=Disk Read Throughput
+huaweicloud_rds_mysql.rds050_disk_write_throughput=Disk Write Throughput
+huaweicloud_rds_mysql.rds072_conn_usage=Connection Usage
+huaweicloud_rds_mysql.rds074_slow_queries=Slow Queries
+huaweicloud_rds_mysql.rds081_vm_ioutils=VM IO Utilization
+
+huaweicloud_rds_mysql.tab.cpu_memory=CPU & Memory
+huaweicloud_rds_mysql.tab.disk_io=Disk & IO
+huaweicloud_rds_mysql.tab.network=Network
+huaweicloud_rds_mysql.tab.connections=Connections
+huaweicloud_rds_mysql.tab.queries=Queries
+huaweicloud_rds_mysql.tab.innodb=InnoDB
+
+reports.average.huaweicloud_rds_mysql.usage=平均
+avg.huaweicloud_rds_mysql.usage=平均
+max.huaweicloud_rds_mysql.usage=最大
+min.huaweicloud_rds_mysql.usage=最小
+
+####################### HuaweiCloud RDS PostgreSQL #######################
+global.huaweicloud_rds_postgresql.monitortype=HuaweiCloud RDS PostgreSQL
+global.huaweicloud_rds_postgresql.monitortype.short=RDS PostgreSQL
+huaweicloud_rds_postgresql.monitor.add=Add HuaweiCloud RDS PostgreSQL Monitor
+huaweicloud_rds_postgresql.monitor.edit=Edit HuaweiCloud RDS PostgreSQL Monitor
+huaweicloud_rds_postgresql.monitor.type=HuaweiCloud RDS PostgreSQL
+report.mail.huaweicloud_rds_postgresql.desc=HuaweiCloud RDS PostgreSQL Monitor
+huaweicloud_rds_postgresql.wm_raw_table=性能指标
+huaweicloud_rds_postgresql.summary.title=RDS PostgreSQL Summary
+
+huaweicloud_rds_postgresql.rds001_cpu_util=CPU利用率
+huaweicloud_rds_postgresql.rds002_mem_util=内存利用率
+huaweicloud_rds_postgresql.rds003_iops=IOPS
+huaweicloud_rds_postgresql.rds004_bytes_in=网络输入吞吐量
+huaweicloud_rds_postgresql.rds005_bytes_out=网络输出吞吐量
+huaweicloud_rds_postgresql.rds039_disk_util=Disk Utilization
+huaweicloud_rds_postgresql.rds040_transaction_logs_usage=Transaction Logs Usage
+huaweicloud_rds_postgresql.rds042_database_connections=Database Connections
+huaweicloud_rds_postgresql.rds043_maximum_used_transaction_ids=Maximum Used Transaction IDs
+huaweicloud_rds_postgresql.rds044_transaction_logs_generations=Transaction Logs Generation Rate
+huaweicloud_rds_postgresql.rds045_oldest_replication_slot_lag=Oldest Replication Slot Lag
+huaweicloud_rds_postgresql.rds046_replication_lag=Replication Lag
+huaweicloud_rds_postgresql.rds047_disk_total_size=Disk Total Size
+huaweicloud_rds_postgresql.rds048_disk_used_size=Disk Used Size
+huaweicloud_rds_postgresql.rds049_disk_read_throughput=Disk Read Throughput
+huaweicloud_rds_postgresql.rds050_disk_write_throughput=Disk Write Throughput
+huaweicloud_rds_postgresql.rds082_tps=每秒事务数
+huaweicloud_rds_postgresql.rds083_conn_usage=Connection Usage
+huaweicloud_rds_postgresql.rds_pg_qps=每秒查询数
+huaweicloud_rds_postgresql.active_connections=活动连接数
+huaweicloud_rds_postgresql.disk_io_usage=Disk IO Usage
+huaweicloud_rds_postgresql.swap_usage=Swap Usage
+huaweicloud_rds_postgresql.wal_size=WAL Size
+huaweicloud_rds_postgresql.slow_sql_one_second=Slow SQL (1 Second)
+
+huaweicloud_rds_postgresql.tab.cpu_memory=CPU & Memory
+huaweicloud_rds_postgresql.tab.disk_io=Disk & IO
+huaweicloud_rds_postgresql.tab.network=Network
+huaweicloud_rds_postgresql.tab.connections=Connections
+huaweicloud_rds_postgresql.tab.queries=Queries
+huaweicloud_rds_postgresql.tab.replication=Replication
+huaweicloud_rds_postgresql.tab.wal_logs=WAL & Logs
+
+reports.average.huaweicloud_rds_postgresql.usage=平均
+avg.huaweicloud_rds_postgresql.usage=平均
+max.huaweicloud_rds_postgresql.usage=最大
+min.huaweicloud_rds_postgresql.usage=最小
+
+####################### HuaweiCloud RDS SQL Server #######################
+global.huaweicloud_rds_sqlserver.monitortype=HuaweiCloud RDS SQ####################### HuaweiCloud RDS SQL Server #######################
+global.huaweicloud_rds_sqlserver.monitortype=华为云RDS SQL Server
+global.huaweicloud_rds_sqlserver.monitortype.short=RDS SQL 服务器
+huaweicloud_rds_sqlserver.monitor.add=添加华为云RDS SQL Server监控
+huaweicloud_rds_sqlserver.monitor.edit=编辑华为云RDS SQL Server监控
+huaweicloud_rds_sqlserver.monitor.type=华为云RDS SQL Server
+report.mail.huaweicloud_rds_sqlserver.desc=华为云RDS SQL Server监控
+huaweicloud_rds_sqlserver.wm_raw_table=绩效指标
+huaweicloud_rds_sqlserver.summary.title=RDS SQL Server 摘要
+
+huaweicloud_rds_sqlserver.rds001_cpu_util=CPU利用率
+huaweicloud_rds_sqlserver.rds002_mem_util=内存利用率
+huaweicloud_rds_sqlserver.rds003_iops=IOPS
+huaweicloud_rds_sqlserver.rds004_bytes_in=网络输入吞吐量
+huaweicloud_rds_sqlserver.rds005_bytes_out=网络输出吞吐量
+huaweicloud_rds_sqlserver.rds006_conn_count=总连接数
+huaweicloud_rds_sqlserver.rds007_conn_active_count=活跃连接数
+huaweicloud_rds_sqlserver.rds008_qps=每秒查询数
+huaweicloud_rds_sqlserver.rds009_tps=每秒交易数
+huaweicloud_rds_sqlserver.rds028_comdml_del_count=删除操作
+huaweicloud_rds_sqlserver.rds029_comdml_ins_count=插入操作
+huaweicloud_rds_sqlserver.rds033_comdml_sel_count=选择操作
+huaweicloud_rds_sqlserver.rds034_comdml_upd_count=更新操作
+huaweicloud_rds_sqlserver.rds039_disk_util=磁盘利用率
+huaweicloud_rds_sqlserver.rds047_disk_total_size=磁盘总大小
+huaweicloud_rds_sqlserver.rds048_disk_used_size=磁盘已用大小
+huaweicloud_rds_sqlserver.rds049_disk_read_throughput=磁盘读取吞吐量
+huaweicloud_rds_sqlserver.rds050_disk_write_throughput=磁盘写入吞吐量
+huaweicloud_rds_sqlserver.rds072_conn_usage=连接使用情况
+huaweicloud_rds_sqlserver.rds074_slow_queries=慢速查询
+huaweicloud_rds_sqlserver.rds075_avg_disk_ms_per_read=平均磁盘读取延迟
+huaweicloud_rds_sqlserver.rds076_avg_disk_ms_per_write=平均磁盘写入延迟
+huaweicloud_rds_sqlserver.rds081_vm_ioutils=虚拟机 IO 利用率
+huaweicloud_rds_sqlserver.sys_swap_usage=掉期使用
+
+huaweicloud_rds_sqlserver.tab.cpu_memory=中央处理器及内存
+huaweicloud_rds_sqlserver.tab.disk_io=磁盘与IO
+huaweicloud_rds_sqlserver.tab.network=网络
+huaweicloud_rds_sqlserver.tab.connections=连接
+huaweicloud_rds_sqlserver.tab.queries=查询
+huaweicloud_rds_sqlserver.tab.dml=DML操作
+
+reports.average.huaweicloud_rds_sqlserver.usage=平均的
+avg.huaweicloud_rds_sqlserver.usage=平均
+max.huaweicloud_rds_sqlserver.usage=最大限度
+min.huaweicloud_rds_sqlserver.usage=最小
+
+####################### HuaweiCloud DDS MongoDB #######################
+global.huaweicloud_dds.monitortype=华为云DDS MongoDB
+global.huaweicloud_dds.monitortype.short=DDS 数据库
+huaweicloud_dds.monitor.add=添加华为云DDS MongoDB监控
+huaweicloud_dds.monitor.edit=编辑华为云DDS MongoDB监控
+huaweicloud_dds.monitor.type=华为云DDS MongoDB
+report.mail.huaweicloud_dds.desc=华为云DDS MongoDB监控
+huaweicloud_dds.wm_raw_table=绩效指标
+huaweicloud_dds.summary.title=DDS MongoDB 总结
+huaweicloud_dds.unit.hours=时间
+huaweicloud_dds.unit=单元
+
+huaweicloud_dds.mongo001_command_ps=每秒命令语句数
+huaweicloud_dds.mongo002_delete_ps=每秒删除语句数
+huaweicloud_dds.mongo003_insert_ps=每秒 INSERT 语句数
+huaweicloud_dds.mongo004_query_ps=每秒 QUERY 语句数
+huaweicloud_dds.mongo005_update_ps=每秒更新语句数
+huaweicloud_dds.mongo006_getmore_ps=每秒获取更多语句
+huaweicloud_dds.mongo007_connections=活动节点连接
+huaweicloud_dds.mongo007_connections_usage=活动节点连接使用情况
+huaweicloud_dds.mongo008_mem_resident=常驻内存
+huaweicloud_dds.mongo009_mem_virtual=虚拟内存
+huaweicloud_dds.mongo010_regular_asserts_ps=每秒常规断言
+huaweicloud_dds.mongo011_warning_asserts_ps=每秒警告断言数
+huaweicloud_dds.mongo012_msg_asserts_ps=每秒消息断言数
+huaweicloud_dds.mongo013_user_asserts_ps=每秒用户断言数
+huaweicloud_dds.mongo014_queues_total=排队等待锁的操作
+huaweicloud_dds.mongo015_queues_readers=等待读锁的排队操作
+huaweicloud_dds.mongo016_queues_writers=等待写锁的排队操作
+huaweicloud_dds.mongo017_page_faults=页面错误
+huaweicloud_dds.mongo018_porfling_num=慢速查询
+huaweicloud_dds.mongo019_cursors_open=维护的游标
+huaweicloud_dds.mongo020_cursors_timeOut=超时游标
+huaweicloud_dds.mongo021_wt_cahe_usage=WiredTiger 缓存中的字节
+huaweicloud_dds.mongo022_wt_cahe_dirty=跟踪 WiredTiger 缓存中的脏字节
+huaweicloud_dds.mongo023_wInto_wtCache=每秒写入缓存的字节数
+huaweicloud_dds.mongo024_wFrom_wtCache=每秒从缓存写入的字节数
+huaweicloud_dds.mongo025_repl_headroom=复制空间
+huaweicloud_dds.mongo025_repl_oplog_win=操作日志窗口
+huaweicloud_dds.mongo026_repl_lag=复制滞后
+huaweicloud_dds.mongo027_repl_command_ps=每秒复制的命令语句数
+huaweicloud_dds.mongo028_repl_update_ps=每秒复制的 UPDATE 语句数
+huaweicloud_dds.mongo029_repl_delete_ps=每秒复制的 DELETE 语句数
+huaweicloud_dds.mongo030_repl_insert_ps=每秒复制的 INSERT 语句数
+huaweicloud_dds.mongo031_cpu_usage=中央处理器使用率
+huaweicloud_dds.mongo032_mem_usage=内存使用情况
+huaweicloud_dds.mongo033_bytes_out=网络输出吞吐量
+huaweicloud_dds.mongo034_bytes_in=网络输入吞吐量
+huaweicloud_dds.mongo035_disk_usage=存储空间使用情况
+huaweicloud_dds.mongo036_iops=IOPS
+huaweicloud_dds.mongo037_read_throughput=磁盘读取吞吐量
+huaweicloud_dds.mongo038_write_throughput=磁盘写入吞吐量
+huaweicloud_dds.mongo039_avg_disk_sec_per_read=每次磁盘读取的平均时间
+huaweicloud_dds.mongo040_avg_disk_sec_per_write=每次磁盘写入的平均时间
+huaweicloud_dds.mongo042_disk_total_size=总存储空间
+huaweicloud_dds.mongo043_disk_used_size=已用存储空间
+huaweicloud_dds.mongo044_swap_usage=掉期使用
+huaweicloud_dds.mongo050_top_total_time=收集总时间
+huaweicloud_dds.mongo051_top_read_time=收藏阅读时间
+huaweicloud_dds.mongo052_top_write_time=集合写入时间
+huaweicloud_dds.mongo053_wt_flushes_status=检查点触发器
+huaweicloud_dds.mongo054_wt_cache_used_percent=WiredTiger 缓存使用百分比
+huaweicloud_dds.mongo055_wt_cache_dirty_percent=WiredTiger 缓存脏百分比
+huaweicloud_dds.mongo091_active_session_count=活跃会话
+huaweicloud_dds.mongo092_rx_errors=Received Packet Error Rate
+huaweicloud_dds.mongo093_rx_dropped=Received Packet Loss Rate
+huaweicloud_dds.mongo094_tx_errors=发送包错误率
+huaweicloud_dds.mongo095_tx_dropped=发送丢包率
+huaweicloud_dds.mongo096_retrans_segs=Retransmitted Packets
+huaweicloud_dds.mongo097_retrans_rate=重传率
+huaweicloud_dds.mongo098_out_rsts_nums=发送 RST 数据包
+
+huaweicloud_dds.tab.operations=运营
+huaweicloud_dds.tab.connections=连接
+huaweicloud_dds.tab.cpu_memory=中央处理器及内存
+huaweicloud_dds.tab.asserts=断言
+huaweicloud_dds.tab.queues_cursors=队列和游标
+huaweicloud_dds.tab.wiredtiger=连线虎
+huaweicloud_dds.tab.replication=复制
+huaweicloud_dds.tab.network=网络
+huaweicloud_dds.tab.disk_io=磁盘与IO
+
+huaweicloud_dds.cpu.memory.metrics=CPU 和内存指标
+huaweicloud_dds.connections.metrics=Connection Metrics
+huaweicloud_dds.disk.io.metrics=Disk & IO Metrics
+huaweicloud_dds.replication.metrics=复制指标
+huaweicloud_dds.wiredtiger.metrics=WiredTiger 指标
+
+reports.average.huaweicloud_dds.usage=平均的
+avg.huaweicloud_dds.usage=平均
+max.huaweicloud_dds.usage=最大限度
+min.huaweicloud_dds.usage=最小
+
+####################### HuaweiCloud GaussDB MySQL #######################
+global.huaweicloud_gaussdb.monitortype=华为云GaussDB MySQL
+global.huaweicloud_gaussdb.monitortype.short=GaussDB MySQL
+huaweicloud_gaussdb.monitor.add=添加华为云GaussDB MySQL监控
+huaweicloud_gaussdb.monitor.edit=编辑华为云GaussDB MySQL监控
+huaweicloud_gaussdb.monitor.type=华为云GaussDB MySQL
+report.mail.huaweicloud_gaussdb.desc=华为云GaussDB MySQL监控
+huaweicloud_gaussdb.wm_raw_table=绩效指标
+huaweicloud_gaussdb.summary.title=GaussDB MySQL总结
+
+huaweicloud_gaussdb.gaussdb_mysql001_cpu_util=中央处理器使用率
+huaweicloud_gaussdb.gaussdb_mysql002_mem_util=内存使用情况
+huaweicloud_gaussdb.gaussdb_mysql004_bytes_in=网络输入吞吐量
+huaweicloud_gaussdb.gaussdb_mysql005_bytes_out=网络输出吞吐量
+huaweicloud_gaussdb.gaussdb_mysql060_rx_errors=Error Rate of Received Packets
+huaweicloud_gaussdb.gaussdb_mysql061_rx_dropped=接收包丢失率
+huaweicloud_gaussdb.gaussdb_mysql062_tx_errors=发送包错误率
+huaweicloud_gaussdb.gaussdb_mysql063_tx_dropped=Loss Rate of Sent Packets
+huaweicloud_gaussdb.gaussdb_mysql006_conn_count=总连接数
+huaweicloud_gaussdb.gaussdb_mysql007_conn_active_count=Current Active Connections
+huaweicloud_gaussdb.gaussdb_mysql072_conn_usage=连接使用情况
+huaweicloud_gaussdb.gaussdb_mysql008_qps=QPS
+huaweicloud_gaussdb.gaussdb_mysql009_tps=TPS
+huaweicloud_gaussdb.gaussdb_mysql028_comdml_del_count=每秒删除语句数
+huaweicloud_gaussdb.gaussdb_mysql029_comdml_ins_count=每秒 INSERT 语句数
+huaweicloud_gaussdb.gaussdb_mysql030_comdml_ins_sel_count=每秒 INSERT_SELECT 语句数
+huaweicloud_gaussdb.gaussdb_mysql031_comdml_rep_count=每秒替换语句数
+huaweicloud_gaussdb.gaussdb_mysql032_comdml_rep_sel_count=每秒 REPLACE_SELECTION 条语句
+huaweicloud_gaussdb.gaussdb_mysql033_comdml_sel_count=每秒 SELECT 语句数
+huaweicloud_gaussdb.gaussdb_mysql034_comdml_upd_count=每秒更新语句数
+huaweicloud_gaussdb.gaussdb_mysql107_comdml_ins_and_ins_sel_count=每秒 INSERT 和 INSERT_SELECT
+huaweicloud_gaussdb.gaussdb_mysql108_com_commit_count=每秒 COMMIT 语句数
+huaweicloud_gaussdb.gaussdb_mysql109_com_rollback_count=每秒回滚语句数
+huaweicloud_gaussdb.gaussdb_mysql074_slow_queries=Slow Query Logs
+huaweicloud_gaussdb.gaussdb_mysql010_innodb_buf_usage=缓冲池使用情况
+huaweicloud_gaussdb.gaussdb_mysql011_innodb_buf_hit=缓冲池命中率
+huaweicloud_gaussdb.gaussdb_mysql012_innodb_buf_dirty=缓冲池脏块比率
+huaweicloud_gaussdb.gaussdb_mysql013_innodb_reads=InnoDB 读取吞吐量
+huaweicloud_gaussdb.gaussdb_mysql014_innodb_writes=InnoDB 写入吞吐量
+huaweicloud_gaussdb.gaussdb_mysql017_innodb_log_write_req_count=InnoDB日志写入请求频率
+huaweicloud_gaussdb.gaussdb_mysql019_innodb_log_writes=InnoDB Log Writes
+huaweicloud_gaussdb.gaussdb_mysql035_innodb_del_row_count=行删除频率
+huaweicloud_gaussdb.gaussdb_mysql036_innodb_ins_row_count=行插入频率
+huaweicloud_gaussdb.gaussdb_mysql037_innodb_read_row_count=行读取频率
+huaweicloud_gaussdb.gaussdb_mysql038_innodb_upd_row_count=行更新频率
+huaweicloud_gaussdb.gaussdb_mysql110_innodb_bufpool_reads=InnoDB 存储层每秒读取请求数
+huaweicloud_gaussdb.gaussdb_mysql111_innodb_bufpool_read_requests=InnoDB 每秒读取请求数
+huaweicloud_gaussdb.gaussdb_mysql114_innodb_bufpool_read_ahead=InnoDB Bufpool 预读
+huaweicloud_gaussdb.gaussdb_mysql115_innodb_bufpool_read_ahead_evicted=InnoDB Bufpool 预读被逐出
+huaweicloud_gaussdb.gaussdb_mysql116_innodb_bufpool_read_ahead_rnd=InnoDB Bufpool 预读 Rnd
+huaweicloud_gaussdb.gaussdb_mysql117_innodb_pages_read=InnoDB 页面读取
+huaweicloud_gaussdb.gaussdb_mysql118_innodb_pages_written=写入的 InnoDB 页面
+huaweicloud_gaussdb.gaussdb_mysql120_innodb_buffer_pool_bytes_data=缓冲池总字节数
+huaweicloud_gaussdb.gaussdb_mysql121_innodb_row_lock_time=行锁定时间
+huaweicloud_gaussdb.gaussdb_mysql122_innodb_row_lock_waits=行锁等待
+huaweicloud_gaussdb.gaussdb_mysql048_disk_used_size=已用存储空间
+huaweicloud_gaussdb.gaussdb_mysql119_disk_used_ratio=磁盘使用情况
+huaweicloud_gaussdb.gaussdb_mysql342_iostat_iops_write=Write IOPS
+huaweicloud_gaussdb.gaussdb_mysql344_iostat_iops_read=读取IOPS
+huaweicloud_gaussdb.gaussdb_mysql346_iostat_throughput_write=写入带宽
+huaweicloud_gaussdb.gaussdb_mysql348_iostat_throughput_read=Read Bandwidth
+huaweicloud_gaussdb.gaussdb_mysql104_dfv_write_delay=存储写入延迟
+huaweicloud_gaussdb.gaussdb_mysql105_dfv_read_delay=Storage Read Delay
+huaweicloud_gaussdb.gaussdb_mysql077_replication_delay=复制延迟
+huaweicloud_gaussdb.gaussdb_mysql430_taurus_innodb_rpl_millisecond_behind_master=Replication Delay Millisecond-level
+huaweicloud_gaussdb.gaussdb_mysql020_temp_tbl_count=临时表
+huaweicloud_gaussdb.gaussdb_mysql378_create_temp_tbl_per_min=每分钟创建的临时表
+huaweicloud_gaussdb.gaussdb_mysql128_long_trx_count=长时间运行的事务
+huaweicloud_gaussdb.gaussdb_mysql386_undo_spaces_trx_count=撤消空间中的现有事务
+huaweicloud_gaussdb.gaussdb_mysql123_sort_range=Sorts Using Ranges
+huaweicloud_gaussdb.gaussdb_mysql124_sort_rows=Sorted Rows
+huaweicloud_gaussdb.gaussdb_mysql125_sort_scan=按扫描表排序
+huaweicloud_gaussdb.gaussdb_mysql126_table_open_cache_hits=打开表缓存查找的命中
+huaweicloud_gaussdb.gaussdb_mysql127_table_open_cache_misses=打开表缓存查找未命中
+huaweicloud_gaussdb.gaussdb_mysql371_taurus_binlog_total_file_counts=二进制日志文件
+huaweicloud_gaussdb.gaussdb_mysql348_taurus_throttle_slice_num=写流量控制
+huaweicloud_gaussdb.gaussdb_mysql339_taurus_sal_flow_control_instance_read_page_throttle=阅读交通管制
+
+huaweicloud_gaussdb.tab.cpu_memory=中央处理器及内存
+huaweicloud_gaussdb.group.cpu_memory=中央处理器及内存
+huaweicloud_gaussdb.tab.network=网络
+huaweicloud_gaussdb.group.network=网络
+huaweicloud_gaussdb.tab.connections=连接
+huaweicloud_gaussdb.group.connections=连接
+huaweicloud_gaussdb.tab.queries=查询
+huaweicloud_gaussdb.group.queries=查询
+huaweicloud_gaussdb.tab.innodb=数据库
+huaweicloud_gaussdb.group.innodb=数据库
+huaweicloud_gaussdb.tab.disk_io=磁盘与IO
+huaweicloud_gaussdb.group.disk_io=磁盘与IO
+huaweicloud_gaussdb.tab.replication=复制
+huaweicloud_gaussdb.group.replication=复制
+huaweicloud_gaussdb.tab.misc=杂项
+huaweicloud_gaussdb.group.misc=杂项
+
+reports.average.huaweicloud_gaussdb.usage=平均的
+avg.huaweicloud_gaussdb.usage=平均
+max.huaweicloud_gaussdb.usage=最大限度
+min.huaweicloud_gaussdb.usage=最小
+
+####################### HuaweiCloud GaussDB openGauss #######################
+global.huaweicloud_gaussdbv5.monitortype=华为云GaussDB openGauss
+global.huaweicloud_gaussdbv5.monitortype.short=GaussDB openGauss
+huaweicloud_gaussdbv5.monitor.add=添加HuaweiCloud GaussDB openGauss监控
+huaweicloud_gaussdbv5.monitor.edit=编辑HuaweiCloud GaussDB openGauss Monitor
+huaweicloud_gaussdbv5.monitor.type=华为云GaussDB openGauss
+report.mail.huaweicloud_gaussdbv5.desc=华为云GaussDB openGauss Monitor
+huaweicloud_gaussdbv5.wm_raw_table=绩效指标
+huaweicloud_gaussdbv5.summary.title=GaussDB openGauss总结
+
+huaweicloud_gaussdbv5.rds001_cpu_util=中央处理器使用率
+huaweicloud_gaussdbv5.rds002_mem_util=内存使用情况
+huaweicloud_gaussdbv5.cpu_user_usage=用户模式CPU时间百分比
+huaweicloud_gaussdbv5.cpu_sys_usage=内核模式 CPU 时间百分比
+huaweicloud_gaussdbv5.cpu_wait_usage=磁盘 I/O 等待时间百分比
+huaweicloud_gaussdbv5.rds068_swap_used_ratio=交换内存使用情况
+huaweicloud_gaussdbv5.rds069_swap_total_size=总交换内存
+huaweicloud_gaussdbv5.rds003_bytes_in=数据写入量
+huaweicloud_gaussdbv5.rds004_bytes_out=传出数据量
+huaweicloud_gaussdbv5.retrans_rate=重传率
+huaweicloud_gaussdbv5.rds014_iops=磁盘IOPS
+huaweicloud_gaussdbv5.rds016_disk_write_throughput=磁盘写入吞吐量
+huaweicloud_gaussdbv5.rds017_disk_read_throughput=磁盘读取吞吐量
+huaweicloud_gaussdbv5.rds020_avg_disk_ms_per_write=每次数据盘写入所需时间
+huaweicloud_gaussdbv5.rds021_avg_disk_ms_per_read=每次数据盘读取所需时间
+huaweicloud_gaussdbv5.io_bandwidth_usage=磁盘 I/O 带宽使用情况
+huaweicloud_gaussdbv5.iops_usage=IOPS 使用情况
+huaweicloud_gaussdbv5.rds005_instance_disk_used_size=已用实例磁盘大小
+huaweicloud_gaussdbv5.rds006_instance_disk_total_size=实例磁盘总大小
+huaweicloud_gaussdbv5.rds007_instance_disk_usage=实例磁盘使用情况
+huaweicloud_gaussdbv5.rds035_buffer_hit_ratio=缓冲区命中率
+huaweicloud_gaussdbv5.rds036_deadlocks=僵局
+huaweicloud_gaussdbv5.rds048_P80=80% SQL 语句的响应时间
+huaweicloud_gaussdbv5.rds049_P95=95% SQL 语句的响应时间
+huaweicloud_gaussdbv5.rds084_sys_database_size=系统数据库大小
+huaweicloud_gaussdbv5.rds085_user_database_size=用户数据库总大小
+huaweicloud_gaussdbv5.rds008_disk_used_size=已用磁盘大小
+huaweicloud_gaussdbv5.rds009_disk_total_size=磁盘总大小
+huaweicloud_gaussdbv5.rds010_disk_usage=磁盘使用情况
+huaweicloud_gaussdbv5.rds024_current_sleep_time=主节点流控时长
+huaweicloud_gaussdbv5.rds025_current_rto=待机RTO持续时间
+huaweicloud_gaussdbv5.rds028_standby_delay=备用节点重做进度
+huaweicloud_gaussdbv5.rds066_replication_slot_wal_log_size=复制槽中的 WAL 日志大小
+huaweicloud_gaussdbv5.rds067_xlog_lsn=Xlog率
+huaweicloud_gaussdbv5.rds072_streaming_dr_xlog_gap=容灾集群分片日志间隙
+huaweicloud_gaussdbv5.rds073_streaming_dr_xlog_to_be_replayed=重放的分片日志大小
+huaweicloud_gaussdbv5.rds074_streaming_dr_xlog_flushing_rate=容灾分片日志刷新率
+huaweicloud_gaussdbv5.rds075_streaming_dr_xlog_replay_rate=容灾分片日志重放率
+huaweicloud_gaussdbv5.rds076_streaming_dr_rpo=分片恢复点目标
+huaweicloud_gaussdbv5.rds077_streaming_dr_rto=分片RTO
+huaweicloud_gaussdbv5.rds078_inactive_replication_slot=非活动复制槽
+huaweicloud_gaussdbv5.rds079_standy_not_replayed_log=未重播的只读副本日志的大小
+huaweicloud_gaussdbv5.rds100_standby_diff_redo_and_receive=重做位置和接收位置之间的差异
+huaweicloud_gaussdbv5.rds103_shard_min_rto=分片RTO
+huaweicloud_gaussdbv5.rds026_login_counter=每秒用户登录数
+huaweicloud_gaussdbv5.rds027_logout_counter=每秒用户注销数
+huaweicloud_gaussdbv5.rds030_wait_ratio=锁定等待会话比率
+huaweicloud_gaussdbv5.rds031_active_ratio=活跃会话率
+huaweicloud_gaussdbv5.rds034_inuse_counter=中国连接
+huaweicloud_gaussdbv5.rds053_online_session=在线会议
+huaweicloud_gaussdbv5.rds054_active_session=活跃会话
+huaweicloud_gaussdbv5.rds055_online_ratio=在线会话率
+huaweicloud_gaussdbv5.rds071_locks_session=等待锁的会话
+huaweicloud_gaussdbv5.rds082_gaussv5_wait_session=等待时段
+huaweicloud_gaussdbv5.rds101_online_distinct_client_addr_count=在线客户
+huaweicloud_gaussdbv5.rds102_working_distinct_client_addr_count=活跃客户
+huaweicloud_gaussdbv5.rds104_invalid_usr_pwd_login_denied_count=尝试使用错误密码登录
+huaweicloud_gaussdbv5.rds037_commit_counter=每秒用户提交的事务数
+huaweicloud_gaussdbv5.rds038_rollback_counter=每秒用户回滚事务数
+huaweicloud_gaussdbv5.rds039_bg_commit_counter=每秒后台提交事务数
+huaweicloud_gaussdbv5.rds040_bg_rollback_counter=每秒后台回滚事务数
+huaweicloud_gaussdbv5.rds041_resp_avg=用户交易平均响应时间
+huaweicloud_gaussdbv5.rds042_rollback_ratio=用户交易回滚率
+huaweicloud_gaussdbv5.rds043_bg_rollback_ratio=后台事务回滚率
+huaweicloud_gaussdbv5.rds060_long_running_transaction_exectime=数据库事务的最大执行持续时间
+huaweicloud_gaussdbv5.rds061_idle_in_transaction_num=闲置交易
+huaweicloud_gaussdbv5.rds097_2pc_transaction_prepare=最早的两阶段提交事务持续时间
+huaweicloud_gaussdbv5.rds044_ddl_count=数据定义语言
+huaweicloud_gaussdbv5.rds045_dml_count=数据操作语言
+huaweicloud_gaussdbv5.rds046_dcl_count=数据控制语言
+huaweicloud_gaussdbv5.rds047_ddl_dcl_ratio=DDL 和 DCL 率
+huaweicloud_gaussdbv5.rds062_slowquery_sys=系统数据库中的慢SQL语句
+huaweicloud_gaussdbv5.rds063_slowquery_user=用户数据库中的慢 SQL 语句
+huaweicloud_gaussdbv5.rds086_select_distribution=选择分布
+huaweicloud_gaussdbv5.rds087_update_distribution=更新分布
+huaweicloud_gaussdbv5.rds088_insert_distribution=插入分布
+huaweicloud_gaussdbv5.rds089_delete_distribution=删除分布
+huaweicloud_gaussdbv5.rds090_gaussdbv5_statement=SQL语句
+huaweicloud_gaussdbv5.rds091_gaussv5_qps=阅读请求
+huaweicloud_gaussdbv5.rds092_gaussv5_tps_rt_insert=INSERT 请求响应时间
+huaweicloud_gaussdbv5.rds093_gaussv5_tps_rt_update=更新请求响应时间
+huaweicloud_gaussdbv5.rds094_gaussv5_tps_rt_delete=删除请求响应时间
+huaweicloud_gaussdbv5.rds095_gaussv5_qps_rt=读取请求响应时间
+huaweicloud_gaussdbv5.rds064_dynamic_used_memory=使用的动态内存
+huaweicloud_gaussdbv5.rds065_dynamic_used_memory_usage=动态内存使用
+huaweicloud_gaussdbv5.rds096_process_used_memory=使用内存
+huaweicloud_gaussdbv5.rds070_thread_pool=线程池使用情况
+huaweicloud_gaussdbv5.rds050_ckpt_delay=需要刷新到磁盘的数据量
+huaweicloud_gaussdbv5.rds051_phyrds=每秒物理读取数
+huaweicloud_gaussdbv5.rds052_phywrts=每秒物理写入次数
+huaweicloud_gaussdbv5.rds080_xlog_num=Xlogs
+huaweicloud_gaussdbv5.rds081_xlog_size=Xlog大小
+huaweicloud_gaussdbv5.rds083_cn_temp_dir_size=CN 临时目录大小
+huaweicloud_gaussdbv5.rds098_dn_instance_status=DN 状态
+huaweicloud_gaussdbv5.rds099_replication_slot_dir_size=复制槽目录大小
+huaweicloud_gaussdbv5.rds114_inconsistent_data_num=堆和索引元组不一致
+
+huaweicloud_gaussdbv5.tab.cpu_memory=中央处理器及内存
+huaweicloud_gaussdbv5.group.cpu_memory=中央处理器及内存
+huaweicloud_gaussdbv5.tab.network=网络
+huaweicloud_gaussdbv5.group.network=网络
+huaweicloud_gaussdbv5.tab.disk_io=磁盘与IO
+huaweicloud_gaussdbv5.group.disk_io=磁盘与IO
+huaweicloud_gaussdbv5.tab.instance_disk=实例&磁盘
+huaweicloud_gaussdbv5.group.instance_disk=实例&磁盘
+huaweicloud_gaussdbv5.tab.component_disk=组件和磁盘
+huaweicloud_gaussdbv5.group.component_disk=组件和磁盘
+huaweicloud_gaussdbv5.tab.replication=复制
+huaweicloud_gaussdbv5.group.replication=复制
+huaweicloud_gaussdbv5.tab.sessions=会议
+huaweicloud_gaussdbv5.group.sessions=会议
+huaweicloud_gaussdbv5.tab.transactions=交易
+huaweicloud_gaussdbv5.group.transactions=交易
+huaweicloud_gaussdbv5.tab.sql=SQL
+huaweicloud_gaussdbv5.group.sql=SQL
+huaweicloud_gaussdbv5.tab.resources=资源
+huaweicloud_gaussdbv5.group.resources=资源
+huaweicloud_gaussdbv5.tab.xlog=Xlog
+huaweicloud_gaussdbv5.group.xlog=Xlog
+huaweicloud_gaussdbv5.tab.status=地位
+huaweicloud_gaussdbv5.group.status=地位
+
+reports.average.huaweicloud_gaussdbv5.usage=平均的
+avg.huaweicloud_gaussdbv5.usage=平均
+max.huaweicloud_gaussdbv5.usage=最大限度
+min.huaweicloud_gaussdbv5.usage=最小
+
+# ===================== 华为云 GeminiDB Cassandra =====================
+global.huaweicloud_nosql_cassandra.monitortype=华为云GeminiDB Cassandra
+global.huaweicloud_nosql_cassandra.monitortype.short=GeminiDB 卡桑德拉
+huaweicloud_nosql_cassandra.monitor.add=添加HuaweiCloud GeminiDB Cassandra监控
+huaweicloud_nosql_cassandra.monitor.edit=编辑HuaweiCloud GeminiDB Cassandra Monitor
+huaweicloud_nosql_cassandra.monitor.type=华为云GeminiDB Cassandra
+report.mail.huaweicloud_nosql_cassandra.desc=华为云GeminiDB Cassandra监控
+huaweicloud_nosql_cassandra.wm_raw_table=绩效指标
+huaweicloud_nosql_cassandra.summary.title=GeminiDB Cassandra 摘要
+huaweicloud_nosql_cassandra.unit=指标
+
+# GeminiDB Cassandra - Metric Labels
+huaweicloud_nosql_cassandra.nosql005_disk_usage=磁盘利用率
+huaweicloud_nosql_cassandra.nosql006_disk_total_size=磁盘总大小
+huaweicloud_nosql_cassandra.nosql007_disk_used_size=磁盘已用大小
+huaweicloud_nosql_cassandra.nosql009_dfv_write_delay=DFV 写入延迟
+huaweicloud_nosql_cassandra.nosql010_dfv_read_delay=DFV 读取延迟
+huaweicloud_nosql_cassandra.cassandra001_cpu_usage=中央处理器使用率
+huaweicloud_nosql_cassandra.cassandra002_mem_usage=内存使用情况
+huaweicloud_nosql_cassandra.cassandra003_bytes_out=网络输出吞吐量
+huaweicloud_nosql_cassandra.cassandra004_bytes_in=网络输入吞吐量
+huaweicloud_nosql_cassandra.cassandra014_connections=活跃连接数
+huaweicloud_nosql_cassandra.cassandra015_read_latency=读取延迟
+huaweicloud_nosql_cassandra.cassandra016_write_latency=写入延迟
+huaweicloud_nosql_cassandra.cassandra037_pending_write=待处理的写入
+huaweicloud_nosql_cassandra.cassandra038_pending_read=待读
+huaweicloud_nosql_cassandra.cassandra044_range_slice_latency=范围切片延迟
+huaweicloud_nosql_cassandra.cassandra049_dropped_mutation=丢弃的突变
+huaweicloud_nosql_cassandra.cassandra052_dropped_read=阅读量下降
+huaweicloud_nosql_cassandra.cassandra092_load_info=数据加载大小
+huaweicloud_nosql_cassandra.cassandra093_write_count_latency=写入次数
+huaweicloud_nosql_cassandra.cassandra094_write_1min_rate=写入1分钟率
+huaweicloud_nosql_cassandra.cassandra095_write_p75_latency=写入 P75 延迟
+huaweicloud_nosql_cassandra.cassandra096_write_p95_latency=写入 P95 延迟
+huaweicloud_nosql_cassandra.cassandra097_write_p99_latency=写入 P99 延迟
+huaweicloud_nosql_cassandra.cassandra098_read_count_latency=读取计数
+huaweicloud_nosql_cassandra.cassandra099_read_1min_rate=阅读1分钟率
+huaweicloud_nosql_cassandra.cassandra100_read_p75_latency=读取 P75 延迟
+huaweicloud_nosql_cassandra.cassandra101_read_p95_latency=读取 P95 延迟
+huaweicloud_nosql_cassandra.cassandra102_read_p99_latency=读取 P99 延迟
+huaweicloud_nosql_cassandra.cassandra103_range_slice_count_latency=范围切片计数
+huaweicloud_nosql_cassandra.cassandra104_range_slice_1min_rate=范围切片 1 分钟速率
+huaweicloud_nosql_cassandra.cassandra105_range_slice_p75_latency=范围切片 P75 延迟
+huaweicloud_nosql_cassandra.cassandra106_range_slice_p95_latency=范围切片 P95 延迟
+huaweicloud_nosql_cassandra.cassandra107_range_slice_p99_latency=范围切片 P99 延迟
+huaweicloud_nosql_cassandra.cassandra163_write_p999_latency=写入 P999 延迟
+huaweicloud_nosql_cassandra.cassandra164_read_p999_latency=读取 P999 延迟
+huaweicloud_nosql_cassandra.cassandra165_large_partition_num=大分区数
+huaweicloud_nosql_cassandra.cassandra166_write_max_latency=写入最大延迟
+huaweicloud_nosql_cassandra.cassandra167_read_max_latency=读取最大延迟
+huaweicloud_nosql_cassandra.cassandra168_imbalance_table_num=表数不平衡
+huaweicloud_nosql_cassandra.cassandra169_modify_request_size_mean=平均修改请求大小
+huaweicloud_nosql_cassandra.cassandra170_query_response_size_mean=平均查询响应大小
+huaweicloud_nosql_cassandra.cassandra173_limit_diff_count_mean=平均限制差异计数
+huaweicloud_nosql_cassandra.cassandra174_tombstone_query_rate=墓碑查询率
+huaweicloud_nosql_cassandra.cassandra175_max_sync_delay=最大同步延迟
+huaweicloud_nosql_cassandra.cassandra175_single_delete_rate=单次删除率
+huaweicloud_nosql_cassandra.cassandra176_range_delete_rate=范围删除率
+huaweicloud_nosql_cassandra.cassandra177_large_row_count=大行数
+
+# GeminiDB Cassandra - Tab Labels
+huaweicloud_nosql_cassandra.cpu.memory.metrics=中央处理器及内存
+huaweicloud_nosql_cassandra.storage.metrics=贮存
+huaweicloud_nosql_cassandra.latency.metrics=延迟
+huaweicloud_nosql_cassandra.connections.metrics=连接
+huaweicloud_nosql_cassandra.operations.metrics=运营
+
+# GeminiDB Cassandra - Report Keys
+reports.average.huaweicloud_nosql_cassandra.usage=平均的
+avg.huaweicloud_nosql_cassandra.usage=平均
+max.huaweicloud_nosql_cassandra.usage=最大限度
+min.huaweicloud_nosql_cassandra.usage=最小
+
+# ===================== 华为云 GeminiDB Mongo ====================
+global.huaweicloud_nosql_mongo.monitortype=华为云GeminiDB Mongo
+global.huaweicloud_nosql_mongo.monitortype.short=GeminiDB 蒙戈
+huaweicloud_nosql_mongo.monitor.add=添加HuaweiCloud GeminiDB Mongo监控
+huaweicloud_nosql_mongo.monitor.edit=编辑HuaweiCloud GeminiDB Mongo Monitor
+huaweicloud_nosql_mongo.monitor.type=华为云GeminiDB Mongo
+report.mail.huaweicloud_nosql_mongo.desc=华为云GeminiDB Mongo监控
+huaweicloud_nosql_mongo.wm_raw_table=绩效指标
+huaweicloud_nosql_mongo.summary.title=GeminiDB Mongo 总结
+huaweicloud_nosql_mongo.unit=指标
+
+# GeminiDB Mongo - Metric Labels
+huaweicloud_nosql_mongo.nosql001_cpu_usage=中央处理器使用率
+huaweicloud_nosql_mongo.nosql002_mem_usage=内存使用情况
+huaweicloud_nosql_mongo.nosql003_bytes_out=网络输出吞吐量
+huaweicloud_nosql_mongo.nosql004_bytes_in=网络输入吞吐量
+huaweicloud_nosql_mongo.nosql005_disk_usage=磁盘利用率
+huaweicloud_nosql_mongo.nosql006_disk_total_size=磁盘总大小
+huaweicloud_nosql_mongo.nosql007_disk_used_size=磁盘已用大小
+huaweicloud_nosql_mongo.mongodb001_command_ps=命令/秒
+huaweicloud_nosql_mongo.mongodb002_delete_ps=删除/秒
+huaweicloud_nosql_mongo.mongodb003_insert_ps=插入/秒
+huaweicloud_nosql_mongo.mongodb004_query_ps=查询/秒
+huaweicloud_nosql_mongo.mongodb005_update_ps=更新次数/秒
+huaweicloud_nosql_mongo.mongodb006_getmore_ps=获取更多/秒
+huaweicloud_nosql_mongo.mongodb007_connections=活跃连接数
+huaweicloud_nosql_mongo.mongodb007_connections_usage=连接利用率
+huaweicloud_nosql_mongo.mongodb008_mem_resident=常驻内存
+huaweicloud_nosql_mongo.mongodb009_mem_virtual=虚拟内存
+huaweicloud_nosql_mongo.mongodb010_regular_asserts_ps=常规断言/秒
+huaweicloud_nosql_mongo.mongodb011_warning_asserts_ps=警告断言/秒
+huaweicloud_nosql_mongo.mongodb012_msg_asserts_ps=消息断言/秒
+huaweicloud_nosql_mongo.mongodb013_user_asserts_ps=用户断言/秒
+huaweicloud_nosql_mongo.mongodb014_queues_total=排队操作总数
+huaweicloud_nosql_mongo.mongodb015_queues_readers=排队读取操作
+huaweicloud_nosql_mongo.mongodb016_queues_writers=排队写操作
+huaweicloud_nosql_mongo.mongodb017_page_faults=页面错误
+huaweicloud_nosql_mongo.mongodb018_porfling_num=慢查询计数
+huaweicloud_nosql_mongo.mongodb019_cursors_open=打开光标
+huaweicloud_nosql_mongo.mongodb020_cursors_timeout=光标超时
+
+# GeminiDB Mongo - Tab Labels
+huaweicloud_nosql_mongo.cpu.memory.metrics=中央处理器及内存
+huaweicloud_nosql_mongo.storage.metrics=贮存
+huaweicloud_nosql_mongo.connections.metrics=连接
+huaweicloud_nosql_mongo.operations.metrics=运营
+
+# GeminiDB Mongo - Report Keys
+reports.average.huaweicloud_nosql_mongo.usage=平均的
+avg.huaweicloud_nosql_mongo.usage=平均
+max.huaweicloud_nosql_mongo.usage=最大限度
+min.huaweicloud_nosql_mongo.usage=最小
+
+# ===================== 华为云GeminiDB Redis ====================
+global.huaweicloud_nosql_redis.monitortype=华为云GeminiDB Redis
+global.huaweicloud_nosql_redis.monitortype.short=GeminiDB Redis
+huaweicloud_nosql_redis.monitor.add=添加华为云GeminiDB Redis监控
+huaweicloud_nosql_redis.monitor.edit=编辑华为云GeminiDB Redis监控
+huaweicloud_nosql_redis.monitor.type=华为云GeminiDB Redis
+report.mail.huaweicloud_nosql_redis.desc=华为云GeminiDB Redis监控
+huaweicloud_nosql_redis.wm_raw_table=绩效指标
+huaweicloud_nosql_redis.summary.title=GeminiDB Redis 总结
+huaweicloud_nosql_redis.unit=指标
+
+# GeminiDB Redis - Metric Labels
+huaweicloud_nosql_redis.nosql001_cpu_usage=中央处理器使用率
+huaweicloud_nosql_redis.nosql002_mem_usage=内存使用情况
+huaweicloud_nosql_redis.nosql003_bytes_out=网络输出吞吐量
+huaweicloud_nosql_redis.nosql004_bytes_in=网络输入吞吐量
+huaweicloud_nosql_redis.nosql005_disk_usage=磁盘利用率
+huaweicloud_nosql_redis.nosql006_disk_total_size=磁盘总大小
+huaweicloud_nosql_redis.nosql007_disk_used_size=磁盘已用大小
+huaweicloud_nosql_redis.redis001_connected_clients=连接的客户端
+huaweicloud_nosql_redis.redis002_client_longest_out_list=最长输出列表
+huaweicloud_nosql_redis.redis003_client_biggest_in_buf=最大输入缓冲区
+huaweicloud_nosql_redis.redis801_blocked_clients=被阻止的客户
+huaweicloud_nosql_redis.redis802_used_memory=使用内存
+huaweicloud_nosql_redis.redis803_used_memory_peak=内存使用峰值
+huaweicloud_nosql_redis.redis817_slow_query_count=慢查询计数
+huaweicloud_nosql_redis.redis818_keys_count=总按键数
+
+# GeminiDB Redis - Tab Labels
+huaweicloud_nosql_redis.cpu.memory.metrics=中央处理器及内存
+huaweicloud_nosql_redis.storage.metrics=贮存
+huaweicloud_nosql_redis.connections.metrics=连接
+huaweicloud_nosql_redis.memory.metrics=记忆
+huaweicloud_nosql_redis.operations.metrics=运营
+
+# GeminiDB Redis - Report Keys
+reports.average.huaweicloud_nosql_redis.usage=平均的
+avg.huaweicloud_nosql_redis.usage=平均
+max.huaweicloud_nosql_redis.usage=最大限度
+min.huaweicloud_nosql_redis.usage=最小
+
+####################### HuaweiCloud CDN #######################
+# CDN - Monitor Type Keys
+global.huaweicloud_cdn.monitortype=华为云CDN
+huaweicloud_cdn.monitor.add=添加华为云CDN监控
+huaweicloud_cdn.monitor.edit=编辑华为云CDN监控
+huaweicloud_cdn.monitor.type=华为云CDN
+report.mail.huaweicloud_cdn.desc=华为云CDN监控
+huaweicloud_cdn.wm_raw_table=绩效指标
+huaweicloud_cdn.summary.title=CDN总结
+huaweicloud_cdn.unit=指标
+global.huaweicloud_cdn.monitortype.short=CDN
+
+# CDN - Metric Labels
+huaweicloud_cdn.bw=带宽
+huaweicloud_cdn.bs_bw=回源带宽
+huaweicloud_cdn.flux=交通
+huaweicloud_cdn.bs_flux=回源流量
+huaweicloud_cdn.hit_flux=点击流量
+huaweicloud_cdn.req_num=请求总数
+huaweicloud_cdn.bs_num=回源请求
+huaweicloud_cdn.bs_fail_num=回源失败请求
+huaweicloud_cdn.bs_fail_rate=回源失败率
+huaweicloud_cdn.hit_flux_rate=命中通量率
+huaweicloud_cdn.avg_req_time=平均请求时间
+huaweicloud_cdn.http_code_2xx=HTTP 2xx 计数
+huaweicloud_cdn.http_code_3xx=HTTP 3xx 计数
+huaweicloud_cdn.http_code_4xx=HTTP 4xx 计数
+huaweicloud_cdn.http_code_5xx=HTTP 5xx 计数
+huaweicloud_cdn.http_code_2xx_rate=HTTP 2xx 速率
+huaweicloud_cdn.http_code_3xx_rate=HTTP 3xx 速率
+huaweicloud_cdn.http_code_4xx_rate=HTTP 4xx 速率
+huaweicloud_cdn.http_code_5xx_rate=HTTP 5xx 速率
+huaweicloud_cdn.bs_http_code_2xx=来源 HTTP 2xx 计数
+huaweicloud_cdn.bs_http_code_3xx=原始 HTTP 3xx 计数
+huaweicloud_cdn.bs_http_code_4xx=原始 HTTP 4xx 计数
+huaweicloud_cdn.bs_http_code_5xx=来源 HTTP 5xx 计数
+huaweicloud_cdn.bs_http_code_2xx_rate=原始 HTTP 2xx 速率
+huaweicloud_cdn.bs_http_code_3xx_rate=原始 HTTP 3xx 速率
+huaweicloud_cdn.bs_http_code_4xx_rate=原始 HTTP 4xx 速率
+huaweicloud_cdn.bs_http_code_5xx_rate=原始 HTTP 5xx 速率
+huaweicloud_cdn.http_code_400=HTTP 400 计数
+huaweicloud_cdn.http_code_403=HTTP 403 计数
+huaweicloud_cdn.http_code_404=HTTP 404 计数
+huaweicloud_cdn.http_code_416=HTTP 416 计数
+huaweicloud_cdn.http_code_499=HTTP 499 计数
+huaweicloud_cdn.http_code_500=HTTP 500 计数
+huaweicloud_cdn.http_code_502=HTTP 502 计数
+huaweicloud_cdn.http_code_503=HTTP 503 计数
+huaweicloud_cdn.http_code_504=HTTP 504 计数
+huaweicloud_cdn.http_code_400_rate=HTTP 400 速率
+huaweicloud_cdn.http_code_403_rate=HTTP 403 率
+huaweicloud_cdn.http_code_404_rate=HTTP 404 率
+huaweicloud_cdn.http_code_416_rate=HTTP 416 速率
+huaweicloud_cdn.http_code_499_rate=HTTP 499 速率
+huaweicloud_cdn.http_code_500_rate=HTTP 500 速率
+huaweicloud_cdn.http_code_502_rate=HTTP 502 率
+huaweicloud_cdn.http_code_503_rate=HTTP 503 率
+huaweicloud_cdn.http_code_504_rate=HTTP 504 率
+huaweicloud_cdn.bs_http_code_400=来源 HTTP 400 计数
+huaweicloud_cdn.bs_http_code_403=来源 HTTP 403 计数
+huaweicloud_cdn.bs_http_code_404=来源 HTTP 404 计数
+huaweicloud_cdn.bs_http_code_416=来源 HTTP 416 计数
+huaweicloud_cdn.bs_http_code_499=来源 HTTP 499 计数
+huaweicloud_cdn.bs_http_code_500=来源 HTTP 500 计数
+huaweicloud_cdn.bs_http_code_502=来源 HTTP 502 计数
+huaweicloud_cdn.bs_http_code_503=来源 HTTP 503 计数
+huaweicloud_cdn.bs_http_code_504=来源 HTTP 504 计数
+huaweicloud_cdn.bs_http_code_400_rate=原始 HTTP 400 速率
+huaweicloud_cdn.bs_http_code_403_rate=原始 HTTP 403 率
+huaweicloud_cdn.bs_http_code_404_rate=来源 HTTP 404 率
+huaweicloud_cdn.bs_http_code_416_rate=原始 HTTP 416 速率
+huaweicloud_cdn.bs_http_code_499_rate=原始 HTTP 499 速率
+huaweicloud_cdn.bs_http_code_500_rate=原始 HTTP 500 速率
+huaweicloud_cdn.bs_http_code_502_rate=原始 HTTP 502 率
+huaweicloud_cdn.bs_http_code_503_rate=来源 HTTP 503 率
+huaweicloud_cdn.bs_http_code_504_rate=来源 HTTP 504 率
+
+# CDN - Tab Labels
+huaweicloud_cdn.bandwidth.metrics=带宽
+huaweicloud_cdn.traffic.metrics=交通
+huaweicloud_cdn.requests.metrics=要求
+huaweicloud_cdn.latency.metrics=延迟
+huaweicloud_cdn.http.status.metrics=HTTP 状态
+huaweicloud_cdn.origin.status.metrics=原产地状态
+huaweicloud_cdn.http.detailed.metrics=HTTP详解
+huaweicloud_cdn.origin.detailed.metrics=产地详解
+
+# CDN - Report Keys
+reports.average.huaweicloud_cdn.usage=平均的
+avg.huaweicloud_cdn.usage=平均
+max.huaweicloud_cdn.usage=最大限度
+min.huaweicloud_cdn.usage=最小
+
+####################### HuaweiCloud VPN #######################
+# VPN - Monitor Type Keys
+global.huaweicloud_vpn.monitortype=华为云VPN
+global.huaweicloud_vpn.monitortype.short=VPN
+huaweicloud_vpn.monitor.add=添加华为云VPN监控
+huaweicloud_vpn.monitor.edit=编辑华为云VPN监控
+huaweicloud_vpn.monitor.type=华为云VPN
+report.mail.huaweicloud_vpn.desc=华为云VPN监控
+huaweicloud_vpn.wm_raw_table=绩效指标
+huaweicloud_vpn.summary.title=VPN总结
+huaweicloud_vpn.unit=指标
+
+# VPN - Metric Labels
+huaweicloud_vpn.gateway_send_pkt_rate=网关发送数据包速率
+huaweicloud_vpn.gateway_recv_pkt_rate=网关接收包速率
+huaweicloud_vpn.gateway_send_rate=网关发送速率
+huaweicloud_vpn.gateway_recv_rate=网关接收率
+huaweicloud_vpn.gateway_send_rate_usage=网关发送速率使用情况
+huaweicloud_vpn.gateway_recv_rate_usage=网关接收速率使用情况
+huaweicloud_vpn.gateway_connection_num=网关连接数
+
+# VPN - Tab Labels
+huaweicloud_vpn.network.metrics=网络
+huaweicloud_vpn.connections.metrics=连接
+
+# VPN - Report Keys
+reports.average.huaweicloud_vpn.usage=平均的
+avg.huaweicloud_vpn.usage=平均
+max.huaweicloud_vpn.usage=最大限度
+min.huaweicloud_vpn.usage=最小
+
+####################### HuaweiCloud Direct Connect (Connection) #######################
+# Direct Connect (Connection) - Monitor Type Keys
+global.huaweicloud_dcaas.monitortype=华为云直连（连接）
+global.huaweicloud_dcaas.monitortype.short=直接连接（连接）
+huaweicloud_dcaas.monitor.add=添加华为云直连（连接）监控
+huaweicloud_dcaas.monitor.edit=编辑HuaweiCloud Direct Connect（连接）监控
+huaweicloud_dcaas.monitor.type=华为云直连（连接）
+report.mail.huaweicloud_dcaas.desc=华为云直连（连接）监控
+huaweicloud_dcaas.wm_raw_table=绩效指标
+huaweicloud_dcaas.summary.title=直连（连接）总结
+huaweicloud_dcaas.unit=指标
+
+# Direct Connect (Connection) - Metric Labels
+huaweicloud_dcaas.network_incoming_bits_rate=网络传入比特率
+huaweicloud_dcaas.network_outgoing_bits_rate=网络传出比特率
+huaweicloud_dcaas.network_incoming_bytes=网络传入字节数
+huaweicloud_dcaas.network_outgoing_bytes=网络传出字节数
+huaweicloud_dcaas.network_incoming_packets_rate=网络传入数据包速率
+huaweicloud_dcaas.network_outgoing_packets_rate=网络传出数据包速率
+huaweicloud_dcaas.network_incoming_packets=网络传入数据包
+huaweicloud_dcaas.network_outgoing_packets=网络传出数据包
+huaweicloud_dcaas.network_status=网络状态
+huaweicloud_dcaas.in_errors=入站错误
+
+# Direct Connect (Connection) - Tab Labels
+huaweicloud_dcaas.network.metrics=网络
+huaweicloud_dcaas.traffic.metrics=交通
+huaweicloud_dcaas.general.metrics=一般的
+
+# Direct Connect (Connection) - Report Keys
+reports.average.huaweicloud_dcaas.usage=平均的
+avg.huaweicloud_dcaas.usage=平均
+max.huaweicloud_dcaas.usage=最大限度
+min.huaweicloud_dcaas.usage=最小
+
+####################### HuaweiCloud Direct Connect (Virtual Interface) #######################
+# Direct Connect (Virtual Interface) - Monitor Type Keys
+global.huaweicloud_dcaas_vintf.monitortype=华为云直连（虚拟接口）
+global.huaweicloud_dcaas_vintf.monitortype.short=直接连接（虚拟接口）
+huaweicloud_dcaas_vintf.monitor.add=添加华为云直连（虚拟接口）监控
+huaweicloud_dcaas_vintf.monitor.edit=编辑HuaweiCloud Direct Connect（虚拟接口）监控
+huaweicloud_dcaas_vintf.monitor.type=华为云直连（虚拟接口）
+report.mail.huaweicloud_dcaas_vintf.desc=华为云直连（虚拟接口）监控
+huaweicloud_dcaas_vintf.wm_raw_table=绩效指标
+huaweicloud_dcaas_vintf.summary.title=直连（虚拟接口）摘要
+huaweicloud_dcaas_vintf.unit=指标
+
+# Direct Connect (Virtual Interface) - Metric Labels
+huaweicloud_dcaas_vintf.network_incoming_bits_rate=网络传入比特率
+huaweicloud_dcaas_vintf.network_outgoing_bits_rate=网络传出比特率
+huaweicloud_dcaas_vintf.network_incoming_bytes=网络传入字节数
+huaweicloud_dcaas_vintf.network_outgoing_bytes=网络传出字节数
+huaweicloud_dcaas_vintf.network_incoming_packets_rate=网络传入数据包速率
+huaweicloud_dcaas_vintf.network_outgoing_packets_rate=网络传出数据包速率
+huaweicloud_dcaas_vintf.network_incoming_packets=网络传入数据包
+huaweicloud_dcaas_vintf.network_outgoing_packets=网络传出数据包
+huaweicloud_dcaas_vintf.bgp_receive_route_num_v4=BGP 接收路由 (IPv4)
+huaweicloud_dcaas_vintf.bgp_receive_route_num_v6=BGP 接收路由 (IPv6)
+huaweicloud_dcaas_vintf.bgp_peer_status_v4=BGP 对等状态 (IPv4)
+huaweicloud_dcaas_vintf.bgp_peer_status_v6=BGP 对等状态 (IPv6)
+huaweicloud_dcaas_vintf.latency=延迟
+huaweicloud_dcaas_vintf.packet_loss_rate=丢包率
+
+# Direct Connect (Virtual Interface) - Tab Labels
+huaweicloud_dcaas_vintf.network.metrics=网络
+huaweicloud_dcaas_vintf.traffic.metrics=交通
+huaweicloud_dcaas_vintf.routing.metrics=路由
+huaweicloud_dcaas_vintf.quality.metrics=质量
+
+# Direct Connect (Virtual Interface) - Report Keys
+reports.average.huaweicloud_dcaas_vintf.usage=平均的
+avg.huaweicloud_dcaas_vintf.usage=平均
+max.huaweicloud_dcaas_vintf.usage=最大限度
+min.huaweicloud_dcaas_vintf.usage=最小
+
+####################### HuaweiCloud Direct Connect (Hosted Connection) #######################
+# Direct Connect (Hosted Connection) - Monitor Type Keys
+global.huaweicloud_dcaas_history.monitortype=华为云直连（托管连接）
+global.huaweicloud_dcaas_history.monitortype.short=托管连接
+huaweicloud_dcaas_history.monitor.add=添加华为云专线（托管连接）监控
+huaweicloud_dcaas_history.monitor.edit=编辑HuaweiCloud Direct Connect（托管连接）监控
+huaweicloud_dcaas_history.monitor.type=华为云直连（托管连接）
+report.mail.huaweicloud_dcaas_history.desc=华为云专线（托管连接）监控
+huaweicloud_dcaas_history.wm_raw_table=绩效指标
+huaweicloud_dcaas_history.summary.title=直接连接（托管连接）摘要
+huaweicloud_dcaas_history.unit=指标
+
+# Direct Connect (Hosted Connection) - Metric Labels
+huaweicloud_dcaas_history.network_incoming_bits_rate=网络传入比特率
+huaweicloud_dcaas_history.network_outgoing_bits_rate=网络传出比特率
+huaweicloud_dcaas_history.network_incoming_bytes=网络传入字节数
+huaweicloud_dcaas_history.network_outgoing_bytes=网络传出字节数
+huaweicloud_dcaas_history.network_incoming_packets_rate=网络传入数据包速率
+huaweicloud_dcaas_history.network_outgoing_packets_rate=网络传出数据包速率
+huaweicloud_dcaas_history.network_incoming_packets=网络传入数据包
+huaweicloud_dcaas_history.network_outgoing_packets=网络传出数据包
+huaweicloud_dcaas_history.network_status=网络状态
+huaweicloud_dcaas_history.latency=延迟
+huaweicloud_dcaas_history.packet_loss_rate=丢包率
+
+# Direct Connect (Hosted Connection) - Tab Labels
+huaweicloud_dcaas_history.network.metrics=网络
+huaweicloud_dcaas_history.traffic.metrics=交通
+huaweicloud_dcaas_history.general.metrics=一般的
+huaweicloud_dcaas_history.quality.metrics=质量
+
+# Direct Connect (Hosted Connection) - Report Keys
+reports.average.huaweicloud_dcaas_history.usage=平均的
+avg.huaweicloud_dcaas_history.usage=平均
+max.huaweicloud_dcaas_history.usage=最大限度
+min.huaweicloud_dcaas_history.usage=最小
+
+####################### HuaweiCloud Enterprise Router #######################
+# Enterprise Router - Monitor Type Keys
+global.huaweicloud_er.monitortype=华为云企业路由器
+global.huaweicloud_er.monitortype.short=企业路由器
+huaweicloud_er.monitor.add=添加华为云企业路由器监控
+huaweicloud_er.monitor.edit=编辑华为云企业路由器监控
+huaweicloud_er.monitor.type=华为云企业路由器
+report.mail.huaweicloud_er.desc=华为云企业路由器监控
+huaweicloud_er.wm_raw_table=绩效指标
+huaweicloud_er.summary.title=企业路由器总结
+huaweicloud_er.unit=指标
+
+# Enterprise Router - Metric Labels
+huaweicloud_er.instance_bytes_in=实例入站字节数
+huaweicloud_er.instance_bytes_out=实例出站字节数
+huaweicloud_er.instance_bits_rate_in=实例入站比特率
+huaweicloud_er.instance_bits_rate_out=实例出站比特率
+huaweicloud_er.instance_packets_in=实例入站数据包
+huaweicloud_er.instance_packets_out=实例出站数据包
+huaweicloud_er.instance_packets_drop_blackhole=实例黑洞丢包
+huaweicloud_er.instance_packets_drop_noroute=实例无路由丢弃的数据包
+huaweicloud_er.attachment_bytes_in=附件入站字节数
+huaweicloud_er.attachment_bytes_out=附件出站字节数
+huaweicloud_er.attachment_bits_rate_in=附件入站比特率
+huaweicloud_er.attachment_bits_rate_out=附件出站比特率
+huaweicloud_er.attachment_packets_in=附件入站数据包
+huaweicloud_er.attachment_packets_out=附件出站数据包
+huaweicloud_er.attachment_packets_drop_blackhole=附件黑洞丢弃的数据包
+huaweicloud_er.attachment_packets_drop_noroute=附件 无路由丢弃的数据包
+
+# Enterprise Router - Tab Labels
+huaweicloud_er.traffic.metrics=交通
+huaweicloud_er.network.metrics=网络
+huaweicloud_er.drops.metrics=滴
+huaweicloud_er.attachment.traffic.metrics=附件流量
+huaweicloud_er.attachment.network.metrics=附件网络
+huaweicloud_er.attachment.drops.metrics=附件掉落
+
+# Enterprise Router - Report Keys
+reports.average.huaweicloud_er.usage=平均的
+avg.huaweicloud_er.usage=平均
+max.huaweicloud_er.usage=最大限度
+min.huaweicloud_er.usage=最小
+
+####################### HuaweiCloud VPC Endpoint #######################
+# VPC Endpoint - Monitor Type Keys
+global.huaweicloud_vpcep.monitortype=华为云VPC端点
+global.huaweicloud_vpcep.monitortype.short=VPC端点
+huaweicloud_vpcep.monitor.add=添加华为云VPC端点监控
+huaweicloud_vpcep.monitor.edit=编辑华为云VPC端点监控
+huaweicloud_vpcep.monitor.type=华为云VPC端点
+report.mail.huaweicloud_vpcep.desc=华为云VPC端点监控
+huaweicloud_vpcep.wm_raw_table=绩效指标
+huaweicloud_vpcep.summary.title=VPC 终端节点摘要
+huaweicloud_vpcep.unit=指标
+
+# VPC Endpoint - Metric Labels
+huaweicloud_vpcep.vpcep_rx_bps=接收比特率
+huaweicloud_vpcep.vpcep_tx_bps=传输比特率
+huaweicloud_vpcep.vpcep_bps=总比特率
+huaweicloud_vpcep.vpcep_rx_pps=接收包率
+huaweicloud_vpcep.vpcep_tx_pps=传输数据包速率
+huaweicloud_vpcep.vpcep_pps=总包率
+huaweicloud_vpcep.vpcep_rx_byte=接收字节数
+huaweicloud_vpcep.vpcep_tx_byte=传输字节数
+huaweicloud_vpcep.vpcep_drop_num=丢弃的数据包
+huaweicloud_vpcep.vpcep_connections=连接
+huaweicloud_vpcep.vpcep_act_connections=活跃连接数
+huaweicloud_vpcep.vpcep_from_client_rst_num=来自客户端的RST
+huaweicloud_vpcep.vpcep_from_server_rst_num=来自服务器的 RST
+huaweicloud_vpcep.vpcep_to_client_rst_num=RST 到客户端
+huaweicloud_vpcep.vpcep_to_server_rst_num=RST 到服务器
+
+# VPC Endpoint - Tab Labels
+huaweicloud_vpcep.network.metrics=网络
+huaweicloud_vpcep.traffic.metrics=交通
+huaweicloud_vpcep.general.metrics=一般的
+huaweicloud_vpcep.connections.metrics=连接
+huaweicloud_vpcep.rst.packets.metrics=RST数据包
+
+# VPC Endpoint - Report Keys
+reports.average.huaweicloud_vpcep.usage=平均的
+avg.huaweicloud_vpcep.usage=平均
+max.huaweicloud_vpcep.usage=最大限度
+min.huaweicloud_vpcep.usage=最小
+
+####################### End of Huawei Cloud Metrics Display Names #######################
+
+
+
+# =====华为云FunctionGraph =====
+global.huaweicloud_functiongraph.monitortype=华为云FunctionGraph
+global.huaweicloud_functiongraph.monitortype.short=函数图
+huaweicloud_functiongraph.monitor.add=添加华为云FunctionGraph监控
+huaweicloud_functiongraph.monitor.edit=编辑HuaweiCloud FunctionGraph监控
+huaweicloud_functiongraph.monitor.type=华为云FunctionGraph
+report.mail.huaweicloud_functiongraph.desc=华为云FunctionGraph监控
+huaweicloud_functiongraph.wm_raw_table=绩效指标
+huaweicloud_functiongraph.summary.title=函数图总结
+huaweicloud_functiongraph.count=调用次数
+huaweicloud_functiongraph.failcount=错误计数
+huaweicloud_functiongraph.failRate=错误率
+huaweicloud_functiongraph.rejectcount=油门计数
+huaweicloud_functiongraph.concurrency=并发性
+huaweicloud_functiongraph.systemErrorCount=系统错误计数
+huaweicloud_functiongraph.functionErrorCount=函数错误计数
+huaweicloud_functiongraph.reservedinstancenum=预留实例
+huaweicloud_functiongraph.payPerUseInstance=按使用实例付费
+huaweicloud_functiongraph.instances=运行实例
+huaweicloud_functiongraph.instanceUsage=实例使用情况
+huaweicloud_functiongraph.duration=平均持续时间
+huaweicloud_functiongraph.maxDuration=最长持续时间
+huaweicloud_functiongraph.minDuration=最短持续时间
+huaweicloud_functiongraph.duration_p500=持续时间 P50
+huaweicloud_functiongraph.duration_p800=持续时间 P80
+huaweicloud_functiongraph.duration_p950=持续时间 P95
+huaweicloud_functiongraph.duration_p990=持续时间 P99
+huaweicloud_functiongraph.duration_p999=持续时间 P99.9
+huaweicloud_functiongraph.memoryUsed=使用内存
+huaweicloud_functiongraph.functionCost=功能成本
+huaweicloud_functiongraph.tab.Invocations=祈求
+huaweicloud_functiongraph.tab.Instances=实例
+huaweicloud_functiongraph.tab.Latency=延迟
+huaweicloud_functiongraph.tab.Resources=资源
+reports.average.huaweicloud_functiongraph.usage=平均的
+avg.huaweicloud_functiongraph.usage=平均
+max.huaweicloud_functiongraph.usage=最大限度
+min.huaweicloud_functiongraph.usage=最小
+
+# =====华为云BMS =====
+global.huaweicloud_bms.monitortype=华为云裸机服务器
+global.huaweicloud_bms.monitortype.short=裸机服务器
+huaweicloud_bms.monitor.add=添加华为云裸机服务器监控
+huaweicloud_bms.monitor.edit=编辑华为云裸机服务器监控
+huaweicloud_bms.monitor.type=华为云裸机服务器
+report.mail.huaweicloud_bms.desc=华为云裸机服务器监控
+huaweicloud_bms.wm_raw_table=绩效指标
+huaweicloud_bms.summary.title=裸机服务器总结
+huaweicloud_bms.cpu_usage=中央处理器使用率
+huaweicloud_bms.cpu_usage_idle=空闲CPU使用率
+huaweicloud_bms.cpu_usage_user=用户空间CPU使用率
+huaweicloud_bms.cpu_usage_system=内核空间CPU使用率
+huaweicloud_bms.cpu_usage_other=其他进程CPU使用率
+huaweicloud_bms.cpu_usage_nice=良好的进程 CPU 使用率
+huaweicloud_bms.cpu_usage_iowait=IO 等待 CPU 使用率
+huaweicloud_bms.cpu_usage_irq=CPU中断时间
+huaweicloud_bms.cpu_usage_softirq=CPU 软件中断时间
+huaweicloud_bms.load_average1=1 分钟平均负载
+huaweicloud_bms.load_average5=5 分钟平均负载
+huaweicloud_bms.load_average15=15 分钟平均负载
+huaweicloud_bms.mem_available=可用内存
+huaweicloud_bms.mem_usedPercent=内存使用情况
+huaweicloud_bms.mem_free=空闲内存
+huaweicloud_bms.mem_buffers=内存缓冲区
+huaweicloud_bms.mem_cached=内存缓存
+huaweicloud_bms.total_open_files=打开文件总数
+huaweicloud_bms.net_bitRecv=入站带宽
+huaweicloud_bms.net_bitSent=出站带宽
+huaweicloud_bms.net_packetRecv=数据包接收率
+huaweicloud_bms.net_packetSent=数据包发送速率
+huaweicloud_bms.net_errin=接收错误率
+huaweicloud_bms.net_errout=传输错误率
+huaweicloud_bms.net_dropin=接收丢包率
+huaweicloud_bms.net_dropout=传输丢包率
+huaweicloud_bms.ntp_offset=NTP偏移量
+huaweicloud_bms.net_tcp_total=TCP 连接总数
+huaweicloud_bms.net_tcp_established=TCP 建立
+huaweicloud_bms.net_tcp_sys_sent=TCP SYN_SENT
+huaweicloud_bms.net_tcp_sys_recv=TCP SYN_RECV
+huaweicloud_bms.net_tcp_fin_wait1=TCP FIN_WAIT1
+huaweicloud_bms.net_tcp_fin_wait2=TCP FIN_WAIT2
+huaweicloud_bms.net_tcp_time_wait=TCP 时间等待
+huaweicloud_bms.net_tcp_close=TCP 关闭
+huaweicloud_bms.net_tcp_close_wait=TCP CLOSE_WAIT
+huaweicloud_bms.net_tcp_last_ack=TCP 最后确认
+huaweicloud_bms.net_tcp_listen=TCP监听
+huaweicloud_bms.net_tcp_closing=TCP 关闭
+huaweicloud_bms.net_tcp_retrans=TCP重传率
+huaweicloud_bms.gpu_status=GPU健康状态
+huaweicloud_bms.gpu_usage_gpu=GPU 使用情况
+huaweicloud_bms.gpu_usage_mem=GPU 内存使用情况
+huaweicloud_bms.gpu_usage_encoder=GPU 编码器使用情况
+huaweicloud_bms.gpu_usage_decoder=GPU 解码器使用情况
+huaweicloud_bms.gpu_free_mem=GPU 可用内存
+huaweicloud_bms.gpu_used_mem=GPU 使用内存
+huaweicloud_bms.gpu_temperature=GPU温度
+huaweicloud_bms.gpu_power_draw=GPU 功耗
+huaweicloud_bms.gpu_graphics_clocks=GPU 图形时钟
+huaweicloud_bms.gpu_mem_clocks=GPU 内存时钟
+huaweicloud_bms.gpu_sm_clocks=GPU SM 时钟
+huaweicloud_bms.gpu_video_clocks=GPU 视频时钟
+huaweicloud_bms.gpu_performance_state=GPU 性能状态
+huaweicloud_bms.gpu_volatile_correctable=GPU 易失性可纠正 ECC
+huaweicloud_bms.gpu_volatile_uncorrectable=GPU 易失性不可纠正 ECC
+huaweicloud_bms.gpu_aggregate_correctable=GPU 聚合可纠正 ECC
+huaweicloud_bms.gpu_aggregate_uncorrectable=GPU 聚合不可纠正的 ECC
+huaweicloud_bms.gpu_retired_page_single_bit=GPU 退役页面单个位
+huaweicloud_bms.gpu_retired_page_double_bit=GPU 退役页面双位
+huaweicloud_bms.gpu_rx_throughput_pci=GPU PCI 接收吞吐量
+huaweicloud_bms.gpu_tx_throughput_pci=GPU PCI Tx 吞吐量
+huaweicloud_bms.npu_device_health=NPU 设备健康状况
+huaweicloud_bms.npu_util_rate_ai_core=NPU AI核心使用情况
+huaweicloud_bms.npu_util_rate_mem=NPU 内存使用情况
+huaweicloud_bms.npu_util_rate_ai_cpu=NPU AI CPU使用率
+huaweicloud_bms.npu_util_rate_ctrl_cpu=NPU控制CPU使用率
+huaweicloud_bms.npu_util_rate_mem_bandwidth=NPU 内存带宽使用情况
+huaweicloud_bms.npu_freq_mem=NPU显存频率
+huaweicloud_bms.npu_freq_ai_core=NPU AI核心频率
+huaweicloud_bms.npu_usage_mem=NPU 使用内存
+huaweicloud_bms.npu_sbe=NPU 单比特错误
+huaweicloud_bms.npu_dbe=NPU 双位错误
+huaweicloud_bms.npu_power=神经网络处理器电源
+huaweicloud_bms.npu_temperature=神经网络处理器温度
+huaweicloud_bms.proc_total_count=总流程
+huaweicloud_bms.proc_running_count=正在运行的进程
+huaweicloud_bms.proc_idle_count=空闲进程
+huaweicloud_bms.proc_zombie_count=僵尸进程
+huaweicloud_bms.proc_blocked_count=阻塞的进程
+huaweicloud_bms.proc_sleeping_count=睡眠过程
+huaweicloud_bms.proc_specified_count=指定流程
+huaweicloud_bms.tab.CPU=中央处理器
+huaweicloud_bms.tab.Memory=记忆
+huaweicloud_bms.tab.Network=网络
+huaweicloud_bms.tab.TCP=TCP连接
+huaweicloud_bms.tab.GPU=图形处理器
+huaweicloud_bms.tab.NPU=神经网络处理单元
+huaweicloud_bms.tab.Process=过程
+reports.average.huaweicloud_bms.usage=平均的
+avg.huaweicloud_bms.usage=平均
+max.huaweicloud_bms.usage=最大限度
+min.huaweicloud_bms.usage=最小
+
+# =====华为云弹性伸缩=====
+global.huaweicloud_autoscaling.monitortype=华为云弹性伸缩
+global.huaweicloud_autoscaling.monitortype.short=自动缩放
+huaweicloud_autoscaling.monitor.add=添加华为云弹性伸缩监控
+huaweicloud_autoscaling.monitor.edit=编辑华为云弹性伸缩监控
+huaweicloud_autoscaling.monitor.type=华为云弹性伸缩
+report.mail.huaweicloud_autoscaling.desc=华为云弹性伸缩监控
+huaweicloud_autoscaling.wm_raw_table=绩效指标
+huaweicloud_autoscaling.summary.title=自动伸缩总结
+huaweicloud_autoscaling.cpu_util=CPU利用率
+huaweicloud_autoscaling.mem_util=内存利用率
+huaweicloud_autoscaling.instance_num=实例数
+huaweicloud_autoscaling.network_incoming_bytes_rate_inband=入站带宽
+huaweicloud_autoscaling.network_outgoing_bytes_rate_inband=出站带宽
+huaweicloud_autoscaling.disk_read_bytes_rate=磁盘读取率
+huaweicloud_autoscaling.disk_write_bytes_rate=磁盘写入速率
+huaweicloud_autoscaling.disk_read_requests_rate=磁盘读取请求
+huaweicloud_autoscaling.disk_write_requests_rate=磁盘写请求
+huaweicloud_autoscaling.cpu_usage=中央处理器使用率
+huaweicloud_autoscaling.mem_usedPercent=内存使用百分比
+huaweicloud_autoscaling.load_average1=1 分钟平均负载
+huaweicloud_autoscaling.load_average5=5 分钟平均负载
+huaweicloud_autoscaling.load_average15=15 分钟平均负载
+huaweicloud_autoscaling.gpu_usage_gpu=GPU 使用情况
+huaweicloud_autoscaling.gpu_usage_mem=GPU 内存使用情况
+huaweicloud_autoscaling.tab.CPU_Memory=中央处理器及内存
+huaweicloud_autoscaling.tab.General=一般的
+huaweicloud_autoscaling.tab.Network=网络
+huaweicloud_autoscaling.tab.Disk=磁盘
+huaweicloud_autoscaling.tab.GPU=图形处理器
+reports.average.huaweicloud_autoscaling.usage=平均的
+avg.huaweicloud_autoscaling.usage=平均
+max.huaweicloud_autoscaling.usage=最大限度
+min.huaweicloud_autoscaling.usage=最小
+
+# ===== 新单位钥匙 =====
+server.unit.gb=国标
+server.unit.mhz=兆赫兹
+server.unit.watts=瓦
+server.unit.celsius=\u00b0C
+
+# =====华为云常见错误键=====
+huaweicloud.error.badrequest=错误的请求
+huaweicloud.error.unauthorized=未经授权
+huaweicloud.error.forbidden=禁止
+dashboard.bad.request=错误的请求
+dashboard.forbidden=禁止
+dashboard.unauthorized=未经授权
+cl.bad.request=错误的请求
+cl.forbidden=禁止
+cl.unauthorized=未经授权
+
+# =====华为云_WAF =====
+global.huaweicloud_waf.monitortype=华为云Web应用防火墙
+global.huaweicloud_waf.monitortype.short=WAF
+huaweicloud_waf.monitor.add=添加华为云WAF监控
+huaweicloud_waf.monitor.edit=编辑华为云WAF监控
+huaweicloud_waf.monitor.type=华为云Web应用防火墙
+report.mail.huaweicloud_waf.desc=华为云Web应用防火墙监控
+huaweicloud_waf.summary.title=WAF总结
+huaweicloud_waf.cpu_util=CPU利用率
+huaweicloud_waf.mem_util=内存利用率
+huaweicloud_waf.disk_util=磁盘利用率
+huaweicloud_waf.disk_avail_size=磁盘可用大小
+huaweicloud_waf.disk_read_bytes_rate=磁盘读取吞吐量
+huaweicloud_waf.disk_write_bytes_rate=磁盘写入吞吐量
+huaweicloud_waf.disk_read_requests_rate=磁盘读取请求率
+huaweicloud_waf.disk_write_requests_rate=磁盘写入请求率
+huaweicloud_waf.network_incoming_bytes_rate=网络传入吞吐量
+huaweicloud_waf.network_outgoing_bytes_rate=网络传出吞吐量
+huaweicloud_waf.network_incoming_packets_rate=网络传入数据包速率
+huaweicloud_waf.network_outgoing_packets_rate=网络传出数据包速率
+huaweicloud_waf.active_connections=活跃连接数
+huaweicloud_waf.concurrent_connections=并发连接数
+huaweicloud_waf.latest_policy_sync_time=最新政策同步时间
+huaweicloud_waf.tab.resource=资源
+huaweicloud_waf.tab.disk=磁盘
+huaweicloud_waf.tab.network=网络
+huaweicloud_waf.tab.connections=连接
+huaweicloud_waf.tab.general=一般的
+huaweicloud_waf.group.resource=资源指标
+huaweicloud_waf.group.disk=磁盘指标
+huaweicloud_waf.group.network=网络指标
+huaweicloud_waf.group.connections=连接指标
+huaweicloud_waf.group.general=一般指标
+huaweicloud_waf.wm_raw_table=WAF 性能指标
+reports.average.huaweicloud_waf.usage=平均的
+avg.huaweicloud_waf.usage=平均
+max.huaweicloud_waf.usage=最大限度
+min.huaweicloud_waf.usage=最小
+
+# ===== HUAWEICLOUD_CFW =====
+global.huaweicloud_cfw.monitortype=华为云CFW
+global.huaweicloud_cfw.monitortype.short=CFW
+huaweicloud_cfw.monitor.add=添加华为云CFW监控
+huaweicloud_cfw.monitor.edit=编辑华为云CFW监控
+huaweicloud_cfw.monitor.type=华为云CFW
+report.mail.huaweicloud_cfw.desc=华为云云防火墙监控
+huaweicloud_cfw.summary.title=CFW总结
+huaweicloud_cfw.acl_deny_count=ACL 拒绝计数
+huaweicloud_cfw.acl_hit_count=ACL 命中计数
+huaweicloud_cfw.ips_deny_count=IPS 拒绝计数
+huaweicloud_cfw.ips_hit_count=IPS 命中数
+huaweicloud_cfw.internet_protection_bandwidth_usage=互联网保护带宽使用
+huaweicloud_cfw.internet_protection_bandwidth_usage_rate=上网保护带宽使用率
+huaweicloud_cfw.internet_protection_pps=互联网保护 PPS
+huaweicloud_cfw.vpc_protection_bandwidth_usage=VPC保护带宽使用情况
+huaweicloud_cfw.vpc_protection_bandwidth_usage_rate=VPC保护带宽使用率
+huaweicloud_cfw.vpc_protection_pps=VPC 保护 PPS
+huaweicloud_cfw.used_protection_bandwidth=使用的保护带宽
+huaweicloud_cfw.protection_bandwidth_usage=保护带宽使用情况
+huaweicloud_cfw.tab.acl=前交叉韧带
+huaweicloud_cfw.tab.ips=IPS
+huaweicloud_cfw.tab.internet_protection=互联网保护
+huaweicloud_cfw.tab.vpc_protection=专有网络保护
+huaweicloud_cfw.tab.bandwidth=带宽
+huaweicloud_cfw.group.acl=ACL指标
+huaweicloud_cfw.group.ips=IPS指标
+huaweicloud_cfw.group.internet_protection=互联网保护指标
+huaweicloud_cfw.group.vpc_protection=VPC 保护指标
+huaweicloud_cfw.group.bandwidth=带宽指标
+huaweicloud_cfw.wm_raw_table=CFW 性能指标
+reports.average.huaweicloud_cfw.usage=平均的
+avg.huaweicloud_cfw.usage=平均
+max.huaweicloud_cfw.usage=最大限度
+min.huaweicloud_cfw.usage=最小
+
+# ===== HUAWEICLOUD_APIC =====
+global.huaweicloud_apic.monitortype=华为云APIC
+global.huaweicloud_apic.monitortype.short=APIC
+huaweicloud_apic.monitor.add=添加华为云APIC监控
+huaweicloud_apic.monitor.edit=编辑华为云APIC监控
+huaweicloud_apic.monitor.type=华为云APIC
+report.mail.huaweicloud_apic.desc=华为云专用API网关监控
+huaweicloud_apic.summary.title=APIC总结
+huaweicloud_apic.req_count=请求数
+huaweicloud_apic.req_count_2xx=2xx 请求计数
+huaweicloud_apic.req_count_4xx=4xx 请求计数
+huaweicloud_apic.req_count_5xx=5xx 请求计数
+huaweicloud_apic.req_count_error=错误请求计数
+huaweicloud_apic.avg_latency=平均延迟
+huaweicloud_apic.max_latency=最大延迟
+huaweicloud_apic.input_throughput=输入吞吐量
+huaweicloud_apic.output_throughput=输出吞吐量
+huaweicloud_apic.tab.requests=要求
+huaweicloud_apic.tab.errors=错误
+huaweicloud_apic.tab.latency=延迟
+huaweicloud_apic.tab.throughput=吞吐量
+huaweicloud_apic.group.requests=请求指标
+huaweicloud_apic.group.errors=错误指标
+huaweicloud_apic.group.latency=延迟指标
+huaweicloud_apic.group.throughput=吞吐量指标
+huaweicloud_apic.wm_raw_table=APIC 性能指标
+reports.average.huaweicloud_apic.usage=平均的
+avg.huaweicloud_apic.usage=平均
+max.huaweicloud_apic.usage=最大限度
+min.huaweicloud_apic.usage=最小
+
+# ===== HUAWEICLOUD_APIG =====
+global.huaweicloud_apig.monitortype=华为云API
+global.huaweicloud_apig.monitortype.short=APIG
+huaweicloud_apig.monitor.add=添加华为云API监控
+huaweicloud_apig.monitor.edit=编辑华为云API监控
+huaweicloud_apig.monitor.type=华为云API
+report.mail.huaweicloud_apig.desc=华为云共享API网关监控
+huaweicloud_apig.summary.title=APIG摘要
+huaweicloud_apig.req_count=请求数
+huaweicloud_apig.req_count_2xx=2xx 请求计数
+huaweicloud_apig.req_count_4xx=4xx 请求计数
+huaweicloud_apig.req_count_5xx=5xx 请求计数
+huaweicloud_apig.req_count_error=错误请求计数
+huaweicloud_apig.avg_latency=平均延迟
+huaweicloud_apig.max_latency=最大延迟
+huaweicloud_apig.input_throughput=输入吞吐量
+huaweicloud_apig.output_throughput=输出吞吐量
+huaweicloud_apig.tab.requests=要求
+huaweicloud_apig.tab.errors=错误
+huaweicloud_apig.tab.latency=延迟
+huaweicloud_apig.tab.throughput=吞吐量
+huaweicloud_apig.group.requests=请求指标
+huaweicloud_apig.group.errors=错误指标
+huaweicloud_apig.group.latency=延迟指标
+huaweicloud_apig.group.throughput=吞吐量指标
+huaweicloud_apig.wm_raw_table=APIG 绩效指标
+reports.average.huaweicloud_apig.usage=平均的
+avg.huaweicloud_apig.usage=平均
+max.huaweicloud_apig.usage=最大限度
+min.huaweicloud_apig.usage=最小
+
+# ===== HUAWEICLOUD_VPN 选项卡/组键 =====
+huaweicloud_vpn.tab.network=网络
+huaweicloud_vpn.tab.connections=连接
+
+# ===== HUAWEICLOUD_VPCEP 页签/分组键 =====
+huaweicloud_vpcep.tab.Network=网络
+huaweicloud_vpcep.tab.Traffic=交通
+huaweicloud_vpcep.tab.General=一般的
+huaweicloud_vpcep.tab.Connections=连接
+huaweicloud_vpcep.tab.RST_Packets=RST数据包
+
+# ===== HUAWEICLOUD_ER tab/group 键 =====
+huaweicloud_er.tab.Traffic=交通
+huaweicloud_er.tab.Network=网络
+huaweicloud_er.tab.Drops=滴
+huaweicloud_er.tab.Attachment_Traffic=附件流量
+huaweicloud_er.tab.Attachment_Network=附件网络
+huaweicloud_er.tab.Attachment_Drops=附件掉落
+
+# ===== HUAWEICLOUD_CDN Tab/Group 键 =====
+huaweicloud_cdn.tab.Bandwidth=带宽
+huaweicloud_cdn.tab.Traffic=交通
+huaweicloud_cdn.tab.Requests=要求
+huaweicloud_cdn.tab.Latency=延迟
+huaweicloud_cdn.tab.HTTP_Status=HTTP 状态
+huaweicloud_cdn.tab.Origin_Status=原产地状态
+huaweicloud_cdn.tab.HTTP_Detailed=HTTP详解
+huaweicloud_cdn.tab.Origin_Detailed=产地详解
+
+# ===== HUAWEICLOUD_DCAAS Tab/Group 键 =====
+huaweicloud_dcaas.tab.Network=网络
+huaweicloud_dcaas.tab.Traffic=交通
+huaweicloud_dcaas.tab.General=一般的
+
+# ===== HUAWEICLOUD_DCAAS_HISTORY 选项卡/组键 =====
+huaweicloud_dcaas_history.tab.Network=网络
+huaweicloud_dcaas_history.tab.Traffic=交通
+huaweicloud_dcaas_history.tab.General=一般的
+huaweicloud_dcaas_history.tab.Quality=质量
+
+# ===== HUAWEICLOUD_DCAAS_VINTF 选项卡/组键 =====
+huaweicloud_dcaas_vintf.tab.Network=网络
+huaweicloud_dcaas_vintf.tab.Traffic=交通
+huaweicloud_dcaas_vintf.tab.Routing=路由
+huaweicloud_dcaas_vintf.tab.Quality=质量
+
+# ===== HUAWEICLOUD_DMS_RABBITMQ =====
+global.huaweicloud_dms_rabbitmq.monitortype=华为云DMS RabbitMQ
+global.huaweicloud_dms_rabbitmq.monitortype.short=DMS RabbitMQ
+huaweicloud_dms_rabbitmq.monitor.add=添加HuaweiCloud DMS RabbitMQ监控
+huaweicloud_dms_rabbitmq.monitor.edit=编辑HuaweiCloud DMS RabbitMQ监控
+huaweicloud_dms_rabbitmq.monitor.type=华为云DMS RabbitMQ
+report.mail.huaweicloud_dms_rabbitmq.desc=华为云DMS RabbitMQ监控
+huaweicloud_dms_rabbitmq.wm_raw_table=绩效指标
+huaweicloud_dms_rabbitmq.summary.title=DMS RabbitMQ 总结
+huaweicloud_dms_rabbitmq.connections=连接
+huaweicloud_dms_rabbitmq.channels=渠道
+huaweicloud_dms_rabbitmq.queues=队列
+huaweicloud_dms_rabbitmq.consumers=消费者
+huaweicloud_dms_rabbitmq.connections_states_running=运行连接
+huaweicloud_dms_rabbitmq.connections_states_flow=流量连接
+huaweicloud_dms_rabbitmq.connections_states_block=被阻止的连接
+huaweicloud_dms_rabbitmq.connections_states_close=闭合连接
+huaweicloud_dms_rabbitmq.connections_states_full=全连接
+huaweicloud_dms_rabbitmq.channels_states_running=运行频道
+huaweicloud_dms_rabbitmq.channels_states_flow=流道
+huaweicloud_dms_rabbitmq.channels_states_block=封锁的频道
+huaweicloud_dms_rabbitmq.channels_states_close=封闭渠道
+huaweicloud_dms_rabbitmq.messages_ready=可用消息
+huaweicloud_dms_rabbitmq.messages_unacknowledged=未确认的消息
+huaweicloud_dms_rabbitmq.publish=生产率
+huaweicloud_dms_rabbitmq.deliver=检索率（手动确认）
+huaweicloud_dms_rabbitmq.deliver_no_ack=检索率（自动确认）
+huaweicloud_dms_rabbitmq.queues_states_running=运行队列
+huaweicloud_dms_rabbitmq.queues_states_flow=流队列
+huaweicloud_dms_rabbitmq.tab.connections=连接
+huaweicloud_dms_rabbitmq.tab.messages=留言
+huaweicloud_dms_rabbitmq.tab.rates=价格
+huaweicloud_dms_rabbitmq.group.connections=连接指标
+huaweicloud_dms_rabbitmq.group.messages=消息指标
+huaweicloud_dms_rabbitmq.group.rates=速率指标
+reports.average.huaweicloud_dms_rabbitmq.usage=平均的
+avg.huaweicloud_dms_rabbitmq.usage=平均
+max.huaweicloud_dms_rabbitmq.usage=最大限度
+min.huaweicloud_dms_rabbitmq.usage=最小
+
+# ===== HUAWEICLOUD_DMS_ROCKETMQ =====
+global.huaweicloud_dms_rocketmq.monitortype=华为云DMS RocketMQ
+global.huaweicloud_dms_rocketmq.monitortype.short=DMS RocketMQ
+huaweicloud_dms_rocketmq.monitor.add=添加HuaweiCloud DMS RocketMQ监控
+huaweicloud_dms_rocketmq.monitor.edit=编辑HuaweiCloud DMS RocketMQ监控
+huaweicloud_dms_rocketmq.monitor.type=华为云DMS RocketMQ
+report.mail.huaweicloud_dms_rocketmq.desc=华为云DMS RocketMQ监控
+huaweicloud_dms_rocketmq.wm_raw_table=RocketMQ 性能指标
+huaweicloud_dms_rocketmq.summary.title=DMS RocketMQ 总结
+huaweicloud_dms_rocketmq.instance_produce_msg=实例产生消息
+huaweicloud_dms_rocketmq.instance_consume_msg=实例消费消息
+huaweicloud_dms_rocketmq.instance_accumulation=实例积累
+huaweicloud_dms_rocketmq.instance_produce_scheduled_msg=实例生成预定消息
+huaweicloud_dms_rocketmq.current_topics=当前主题
+huaweicloud_dms_rocketmq.current_queues=当前队列
+huaweicloud_dms_rocketmq.instance_disk_usage=实例磁盘使用情况
+huaweicloud_dms_rocketmq.instance_retention_period=实例保留期限
+huaweicloud_dms_rocketmq.instance_produce_rate=实例生成率
+huaweicloud_dms_rocketmq.instance_consume_rate=实例消耗率
+huaweicloud_dms_rocketmq.instance_produce_rate_for_ratelimit=速率限制的实例生成率
+huaweicloud_dms_rocketmq.instance_consume_rate_for_ratelimit=速率限制的实例消耗率
+huaweicloud_dms_rocketmq.instance_produce_ratelimit_percentage=实例生成率限制百分比
+huaweicloud_dms_rocketmq.instance_consume_ratelimit_percentage=实例消耗率限制百分比
+huaweicloud_dms_rocketmq.instance_produce_ratelimit_times=实例生成速率限制次数
+huaweicloud_dms_rocketmq.instance_consume_ratelimit_times=实例消耗速率限制次数
+huaweicloud_dms_rocketmq.tab.messages=留言
+huaweicloud_dms_rocketmq.tab.general=一般的
+huaweicloud_dms_rocketmq.tab.storage=贮存
+huaweicloud_dms_rocketmq.tab.rate=速度
+huaweicloud_dms_rocketmq.tab.rate_limiting=速率限制
+huaweicloud_dms_rocketmq.group.messages=消息指标
+huaweicloud_dms_rocketmq.group.general=一般指标
+huaweicloud_dms_rocketmq.group.storage=存储指标
+huaweicloud_dms_rocketmq.group.rate=速率指标
+huaweicloud_dms_rocketmq.group.rate_limiting=速率限制指标
+reports.average.huaweicloud_dms_rocketmq.usage=平均的
+avg.huaweicloud_dms_rocketmq.usage=平均
+max.huaweicloud_dms_rocketmq.usage=最大限度
+min.huaweicloud_dms_rocketmq.usage=最小
+it
+huaweicloud_dms_rocketmq.instance_consume_rate_for_ratelimit=Instance Consume Rate For Rate Limit
+huaweicloud_dms_rocketmq.instance_produce_ratelimit_percentage=Instance Produce Rate Limit Percentage
+huaweicloud_dms_rocketmq.instance_consume_ratelimit_percentage=Instance Consume Rate Limit Percentage
+huaweicloud_dms_rocketmq.instance_produce_ratelimit_times=Instance Produce Rate Limit Times
+huaweicloud_dms_rocketmq.instance_consume_ratelimit_times=Instance Consume Rate Limit Times
+huaweicloud_dms_rocketmq.tab.messages=Messages
+huaweicloud_dms_rocketmq.tab.general=General
+huaweicloud_dms_rocketmq.tab.storage=Storage
+huaweicloud_dms_rocketmq.tab.rate=Rate
+huaweicloud_dms_rocketmq.tab.rate_limiting=Rate Limiting
+huaweicloud_dms_rocketmq.group.messages=Message Metrics
+huaweicloud_dms_rocketmq.group.general=General Metrics
+huaweicloud_dms_rocketmq.group.storage=Storage Metrics
+huaweicloud_dms_rocketmq.group.rate=Rate Metrics
+huaweicloud_dms_rocketmq.group.rate_limiting=Rate Limiting Metrics
+reports.average.huaweicloud_dms_rocketmq.usage=平均
+avg.huaweicloud_dms_rocketmq.usage=平均
+max.huaweicloud_dms_rocketmq.usage=最大
+min.huaweicloud_dms_rocketmq.usage=最小
